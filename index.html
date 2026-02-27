@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flaiwheel — Every Bug Fixed Makes the Next Bug Cheaper</title>
-    <meta name="description" content="Self-improving knowledge base for AI coding agents. Free, self-hosted, MCP-native. 17 tools for Cursor, Claude Code, VS Code Copilot. 30-50% faster development.">
+    <meta name="description" content="Self-improving knowledge base for AI coding agents. Free, self-hosted, MCP-native. 18 tools, multi-repo support. For Cursor, Claude Code, VS Code Copilot. 30-50% faster development.">
     <meta name="keywords" content="Flaiwheel, MCP, AI coding agent, knowledge base, semantic search, Cursor, Claude Code, VS Code Copilot, self-hosted, Docker, developer tools, bugfix documentation, vector search, ChromaDB">
     <meta name="author" content="4rce.com Digital Technologies GmbH">
     <meta name="robots" content="index, follow">
@@ -13,13 +13,13 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://flaiwheel.app/">
     <meta property="og:title" content="Flaiwheel — Self-Improving Knowledge Base for AI Coding Agents">
-    <meta property="og:description" content="Every bug fixed makes the next bug cheaper. Free, self-hosted, MCP-native. 17 tools for Cursor, Claude Code, VS Code Copilot.">
+    <meta property="og:description" content="Every bug fixed makes the next bug cheaper. Free, self-hosted, MCP-native. 18 tools, multi-repo support. For Cursor, Claude Code, VS Code Copilot.">
     <meta property="og:image" content="https://flaiwheel.app/og-image.png">
     <meta property="og:site_name" content="Flaiwheel">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Flaiwheel — Self-Improving Knowledge Base for AI Coding Agents">
-    <meta name="twitter:description" content="Every bug fixed makes the next bug cheaper. Free, self-hosted, MCP-native. 17 tools for Cursor, Claude Code, VS Code Copilot.">
+    <meta name="twitter:description" content="Every bug fixed makes the next bug cheaper. Free, self-hosted, MCP-native. 18 tools, multi-repo support. For Cursor, Claude Code, VS Code Copilot.">
     <meta name="twitter:image" content="https://flaiwheel.app/og-image.png">
 
     <script type="application/ld+json">
@@ -28,7 +28,7 @@
         "@type": "SoftwareApplication",
         "name": "Flaiwheel",
         "url": "https://flaiwheel.app",
-        "description": "Self-improving knowledge base for AI coding agents. Self-hosted, MCP-native, 17 structured tools.",
+        "description": "Self-improving knowledge base for AI coding agents. Self-hosted, MCP-native, 18 structured tools, multi-repo support.",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Linux, macOS, Windows (Docker)",
         "offers": [
@@ -55,7 +55,7 @@
         },
         "license": "https://github.com/dl4rce/flaiwheel/blob/main/LICENSE.md",
         "downloadUrl": "https://github.com/dl4rce/flaiwheel",
-        "softwareVersion": "1.8.0"
+        "softwareVersion": "2.0.0"
     }
     </script>
 
@@ -394,7 +394,7 @@
                 <div class="label">Faster Development</div>
             </div>
             <div class="stat">
-                <div class="num">17</div>
+                <div class="num">18</div>
                 <div class="label">MCP Tools</div>
             </div>
             <div class="stat">
@@ -463,11 +463,21 @@
                 <h3>SELF-HOSTED</h3>
                 <p>Runs in a single Docker container on your machine. No cloud, no API keys required, no data leaves your network.</p>
             </div>
+            <div class="feature-card">
+                <div class="icon">&#128193;</div>
+                <h3>MULTI-REPO</h3>
+                <p>Manage multiple projects from a single Flaiwheel instance. One container, one MCP endpoint, one embedding model in RAM &mdash; per-project isolation for collections, watchers, and quality checks.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">&#128260;</div>
+                <h3>MODEL HOT-SWAP</h3>
+                <p>Switch embedding models without downtime. Background migration re-indexes all projects while searches keep working on the old model.</p>
+            </div>
         </div>
     </section>
 
     <section id="tools">
-        <h2>// 17 MCP TOOLS</h2>
+        <h2>// 18 MCP TOOLS</h2>
         <p style="text-align:center; margin-bottom:24px;">
             Works with Cursor, Claude Code, VS Code Copilot &mdash; any MCP-compatible AI agent.
         </p>
@@ -490,7 +500,11 @@
             <tr><td>reindex</td><td>Re-index all documentation</td></tr>
             <tr><td>check_knowledge_quality</td><td>Validate knowledge base consistency</td></tr>
             <tr><td>check_update</td><td>Check for a newer Flaiwheel version</td></tr>
+            <tr><td>list_projects</td><td>List all registered projects with stats</td></tr>
         </table>
+        <p style="text-align:center; margin-top:16px; font-size:13px; color:var(--text);">
+            All tools accept an optional <code style="color:var(--neon-green); background:rgba(57,255,20,0.08); padding:2px 6px;">project</code> parameter for multi-repo targeting.
+        </p>
     </section>
 
     <section id="compare">
@@ -504,7 +518,7 @@
                     <li>&#10003; MCP-native</li>
                     <li>&#10003; Auto-learning flywheel</li>
                     <li>&#10003; Quality enforcement</li>
-                    <li>&#10003; 17 structured tools</li>
+                    <li>&#10003; 18 structured tools</li>
                     <li>&#10003; 100% private</li>
                 </ul>
             </div>
@@ -544,7 +558,7 @@
                 <ul>
                     <li>Non-commercial use</li>
                     <li>Teams up to 10 people</li>
-                    <li>All 17 MCP tools</li>
+                    <li>All 18 MCP tools</li>
                     <li>Unlimited docs &amp; searches</li>
                     <li>Self-hosted, fully private</li>
                     <li>Community support (GitHub)</li>
