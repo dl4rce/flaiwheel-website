@@ -302,6 +302,42 @@
         }
         footer a { color: var(--neon-cyan); text-decoration: none; }
 
+        .project-card {
+            background: var(--dark-card); border: 1px solid var(--border);
+            padding: 32px; max-width: 640px; margin: 0 auto;
+            transition: border-color 0.3s;
+        }
+        .project-card:hover { border-color: var(--neon-orange); box-shadow: 0 0 20px rgba(255, 102, 0, 0.1); }
+        .project-header {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        .project-name {
+            font-family: var(--pixel); font-size: 16px; color: var(--neon-orange);
+            text-shadow: 0 0 10px var(--neon-orange);
+        }
+        .project-header .btn { border-color: var(--neon-orange); color: var(--neon-orange); }
+        .project-header .btn:hover {
+            background: var(--neon-orange); color: var(--dark);
+            box-shadow: 0 0 20px var(--neon-orange);
+        }
+        .project-tagline {
+            font-size: 15px; color: var(--neon-cyan); margin-bottom: 12px;
+            font-style: italic;
+        }
+        .project-card > p { font-size: 14px; color: var(--text); line-height: 1.7; margin-bottom: 16px; }
+        .project-highlights {
+            display: flex; flex-direction: column; gap: 6px;
+            font-size: 13px; color: var(--text); margin-bottom: 20px;
+        }
+        .project-links { display: flex; flex-wrap: wrap; gap: 12px; }
+        .project-links a {
+            font-size: 12px; color: var(--neon-cyan); text-decoration: none;
+            border: 1px solid var(--border); padding: 6px 12px;
+            transition: border-color 0.2s, color 0.2s;
+        }
+        .project-links a:hover { border-color: var(--neon-cyan); }
+
         @media (max-width: 600px) {
             nav .links { display: none; }
             .hero .stats { gap: 24px; }
@@ -324,6 +360,7 @@
             <a href="#tools">Tools</a>
             <a href="#pricing">Pricing</a>
             <a href="#install">Install</a>
+            <a href="#projects">Projects</a>
             <a href="https://github.com/dl4rce/flaiwheel" target="_blank">GitHub</a>
         </div>
     </nav>
@@ -524,6 +561,34 @@
             <p style="font-family:var(--pixel); font-size:11px; color:var(--neon-yellow);">RUN FROM YOUR PROJECT DIRECTORY:</p>
             <code onclick="navigator.clipboard.writeText(this.textContent.trim());this.style.borderColor='var(--neon-yellow)';setTimeout(()=>this.style.borderColor='var(--border)',1000);">curl -sSL https://raw.githubusercontent.com/dl4rce/flaiwheel/main/scripts/install.sh | bash</code>
             <p class="note">Click to copy. Sets up everything: knowledge repo, Docker container, Cursor config, AI agent instructions.</p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>// ALSO BY 4RCE</h2>
+        <div class="project-card">
+            <div class="project-header">
+                <span class="project-name">AI&middot;COLLAB</span>
+                <a href="https://aicollab.app" target="_blank" class="btn" style="padding:10px 20px; font-size:10px;">VISIT</a>
+            </div>
+            <p class="project-tagline">Your entire AI stack. One secure workspace.</p>
+            <p>
+                300+ AI models in one interface &mdash; GPT-5, Claude, Gemini, Grok, Llama, and more.
+                Upload 1,000-page scanned PDFs, ask questions, get precise cited answers.
+                Build knowledge bases, collaborate in shared workspaces, run web searches, execute code, generate images.
+            </p>
+            <div class="project-highlights">
+                <span>&#128274; German hosting &middot; GDPR &middot; Zero Data Retention</span>
+                <span>&#128101; Team &amp; Organization plans</span>
+                <span>&#128176; From &euro;24.99/mo or pay-as-you-go</span>
+            </div>
+            <div class="project-links">
+                <a href="https://aicollab.app/features" target="_blank">Features</a>
+                <a href="https://aicollab.app/pricing" target="_blank">Pricing</a>
+                <a href="https://aicollab.app/organization" target="_blank">Organizations</a>
+                <a href="https://youtu.be/YK2rrMp-0yM" target="_blank">Demo Video</a>
+                <a href="https://aicollab.app/book" target="_blank">Book a Call</a>
+            </div>
         </div>
     </section>
 
