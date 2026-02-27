@@ -302,6 +302,22 @@
         }
         footer a { color: var(--neon-cyan); text-decoration: none; }
 
+        .compat-table {
+            width: 100%; max-width: 520px; margin: 0 auto 32px;
+            border-collapse: collapse; font-size: 13px;
+        }
+        .compat-table th {
+            font-family: var(--pixel); font-size: 9px; color: var(--neon-cyan);
+            text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border);
+        }
+        .compat-table td {
+            padding: 8px 14px; border-bottom: 1px solid var(--border);
+        }
+        .compat-table td:first-child { font-family: monospace; color: var(--text); }
+        .compat-table tr:hover { background: rgba(57, 255, 20, 0.03); }
+        .compat-table a { color: var(--neon-cyan); text-decoration: none; }
+        .compat-table a:hover { text-decoration: underline; }
+
         .project-card {
             background: var(--dark-card); border: 1px solid var(--border);
             padding: 32px; max-width: 640px; margin: 0 auto;
@@ -554,9 +570,15 @@
 
     <section id="install">
         <h2>// ONE COMMAND INSTALL</h2>
-        <p style="text-align:center; margin-bottom:16px;">
+        <p style="text-align:center; margin-bottom:24px;">
             Prerequisites: <a href="https://cli.github.com" target="_blank" style="color:var(--neon-cyan);">GitHub CLI</a> authenticated, <a href="https://docs.docker.com/get-docker/" target="_blank" style="color:var(--neon-cyan);">Docker</a> running.
         </p>
+        <table class="compat-table">
+            <tr><th>OS</th><th>STATUS</th><th>HOW TO START</th></tr>
+            <tr><td>macOS</td><td><span style="color:var(--neon-green);">&#10003; native</span></td><td>Open Terminal, paste the install command</td></tr>
+            <tr><td>Linux</td><td><span style="color:var(--neon-green);">&#10003; native</span></td><td>Open any terminal, paste the install command</td></tr>
+            <tr><td>Windows</td><td><span style="color:var(--neon-yellow);">&#10003; via WSL</span></td><td>Install <a href="https://learn.microsoft.com/en-us/windows/wsl/install" target="_blank" style="color:var(--neon-cyan);">WSL</a>, enable Docker WSL 2 backend, run from WSL terminal</td></tr>
+        </table>
         <div class="install-box">
             <p style="font-family:var(--pixel); font-size:11px; color:var(--neon-yellow);">RUN FROM YOUR PROJECT DIRECTORY:</p>
             <code onclick="navigator.clipboard.writeText(this.textContent.trim());this.style.borderColor='var(--neon-yellow)';setTimeout(()=>this.style.borderColor='var(--border)',1000);">curl -sSL https://raw.githubusercontent.com/dl4rce/flaiwheel/main/scripts/install.sh | bash</code>
