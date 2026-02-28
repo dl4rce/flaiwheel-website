@@ -435,8 +435,8 @@
         <div class="features-grid">
             <div class="feature-card">
                 <div class="icon">&#128270;</div>
-                <h3>SEMANTIC SEARCH</h3>
-                <p>AI agents find docs by meaning, not keywords. Architecture decisions, past bugs, patterns &mdash; all searchable via MCP.</p>
+                <h3>HYBRID SEARCH</h3>
+                <p>Semantic vectors + BM25 keywords merged via Reciprocal Rank Fusion. Finds docs by meaning <em>and</em> exact terms &mdash; best of both worlds.</p>
             </div>
             <div class="feature-card">
                 <div class="icon">&#9997;</div>
@@ -478,10 +478,15 @@
                 <h3>9 INPUT FORMATS</h3>
                 <p>Index MD, TXT, PDF, HTML, RST, DOCX, JSON, YAML, and CSV files. All formats are converted to markdown internally &mdash; one pipeline, no format lock-in.</p>
             </div>
+            <div class="feature-card">
+                <div class="icon">&#128337;</div>
+                <h3>SESSION MEMORY</h3>
+                <p>Agents save session summaries at end, load context at start. Decisions, open questions, files changed &mdash; nothing is lost between sessions.</p>
+            </div>
             <div class="feature-card" style="border-color: var(--neon-yellow); box-shadow: 0 0 20px rgba(255, 230, 0, 0.1);">
                 <div class="icon">&#127756;</div>
                 <h3>"THIS IS THE WAY"</h3>
-                <p>Knowledge Bootstrap &mdash; analyse messy repos, classify files by content + embeddings, detect near-duplicates, propose a cleanup plan. Never deletes files. User approves every action. Also triggered by saying <span style="color:var(--neon-yellow);">"42"</span>.</p>
+                <p>Knowledge Bootstrap &mdash; classify files by content + embeddings, detect near-duplicates, propose a cleanup plan. Never deletes files. User approves every action. Also triggered by saying <span style="color:var(--neon-yellow);">"42"</span>.</p>
             </div>
         </div>
     </section>
