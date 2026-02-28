@@ -567,7 +567,7 @@
     <section id="how">
         <h2>// HOW THE FLYWHEEL WORKS</h2>
         <p style="text-align:center; max-width:680px; margin:0 auto 16px; font-size:16px;">
-            AI agents write. Flaiwheel remembers. Everything stays local and compounds over time.
+            AI agents write. Flaiwheel remembers. If they forget, <span style="color:var(--neon-yellow);">Flaiwheel nudges them.</span> Everything stays local.
         </p>
 
         <!-- Lean USP Diagram -->
@@ -583,7 +583,7 @@
 
             <div class="mcp-bridge">
                 <div class="bridge-pill">&#8646; MCP BRIDGE &#8646;</div>
-                <div class="bridge-note">Cross-agent memory runtime</div>
+                <div class="bridge-note">Cross-agent memory runtime<br><span style="color:var(--neon-yellow); font-weight:bold; margin-top:6px; display:inline-block; font-family:var(--pixel); font-size:8px; text-shadow: 0 0 5px var(--neon-yellow);">+ SMART NUDGES</span></div>
             </div>
 
             <div class="core right-core">
@@ -678,8 +678,8 @@
             </div>
             <div class="feature-card">
                 <div class="icon">&#128202;</div>
-                <h3>TOOL TELEMETRY</h3>
-                <p>Tracks every MCP call per project &mdash; searches, writes, misses, patterns. Detects knowledge gaps and nudges agents to document. Visible in the Web UI in real time.</p>
+                <h3>TELEMETRY &amp; SMART NUDGES</h3>
+                <p>Tracks every MCP call. If an agent fixes a bug but forgets to document it, Flaiwheel injects an <span style="color:var(--neon-yellow);">in-band prompt nudge</span> directly into the tool response, forcing the LLM to write the summary before it replies to you.</p>
             </div>
             <div class="feature-card">
                 <div class="icon">&#128274;</div>
