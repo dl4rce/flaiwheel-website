@@ -55,7 +55,7 @@
         },
         "license": "https://github.com/dl4rce/flaiwheel/blob/main/LICENSE.md",
         "downloadUrl": "https://github.com/dl4rce/flaiwheel",
-        "softwareVersion": "2.7.0"
+        "softwareVersion": "2.8.0"
     }
     </script>
 
@@ -518,6 +518,7 @@
         <span class="logo">FLAIWHEEL</span>
         <div class="links">
             <a href="#how">How it works</a>
+            <a href="#search-pipeline">Search</a>
             <a href="#features">Features</a>
             <a href="#tools">Tools</a>
             <a href="#pricing">Pricing</a>
@@ -542,6 +543,10 @@
             <div class="stat">
                 <div class="num">26</div>
                 <div class="label">MCP Tools</div>
+            </div>
+            <div class="stat">
+                <div class="num">5-STAGE</div>
+                <div class="label">Search Pipeline</div>
             </div>
             <div class="stat">
                 <div class="num">0</div>
@@ -595,13 +600,61 @@
         </p>
     </section>
 
+    <section id="search-pipeline">
+        <h2>// SEARCH PIPELINE</h2>
+        <p style="text-align:center; max-width:680px; margin:0 auto 40px; font-size:16px;">
+            Five stages. Configurable at every step. Optional reranker for maximum precision.
+        </p>
+        <div style="max-width:600px; margin:0 auto;">
+            <div style="display:flex; align-items:flex-start; gap:16px; margin-bottom:8px;">
+                <div style="flex-shrink:0; width:36px; height:36px; border-radius:50%; background:var(--neon-cyan); color:var(--dark); font-family:var(--pixel); font-size:12px; display:flex; align-items:center; justify-content:center; box-shadow:0 0 12px var(--neon-cyan);">1</div>
+                <div>
+                    <div style="font-family:var(--pixel); font-size:11px; color:var(--neon-cyan); margin-bottom:4px;">VECTOR SEARCH</div>
+                    <p style="font-size:13px;">ChromaDB + HNSW cosine similarity. Finds semantically related content even when words differ.</p>
+                </div>
+            </div>
+            <div style="margin-left:17px; width:2px; height:16px; background:var(--border);"></div>
+            <div style="display:flex; align-items:flex-start; gap:16px; margin-bottom:8px;">
+                <div style="flex-shrink:0; width:36px; height:36px; border-radius:50%; background:var(--neon-cyan); color:var(--dark); font-family:var(--pixel); font-size:12px; display:flex; align-items:center; justify-content:center; box-shadow:0 0 12px var(--neon-cyan);">2</div>
+                <div>
+                    <div style="font-family:var(--pixel); font-size:11px; color:var(--neon-cyan); margin-bottom:4px;">BM25 KEYWORD SEARCH</div>
+                    <p style="font-size:13px;">Exact keyword matching with TF-IDF weighting. Catches results that share specific terms.</p>
+                </div>
+            </div>
+            <div style="margin-left:17px; width:2px; height:16px; background:var(--border);"></div>
+            <div style="display:flex; align-items:flex-start; gap:16px; margin-bottom:8px;">
+                <div style="flex-shrink:0; width:36px; height:36px; border-radius:50%; background:var(--neon-magenta); color:var(--dark); font-family:var(--pixel); font-size:12px; display:flex; align-items:center; justify-content:center; box-shadow:0 0 12px var(--neon-magenta);">3</div>
+                <div>
+                    <div style="font-family:var(--pixel); font-size:11px; color:var(--neon-magenta); margin-bottom:4px;">RRF FUSION</div>
+                    <p style="font-size:13px;">Reciprocal Rank Fusion with configurable k and vector/BM25 weights. Docs found by both methods get boosted.</p>
+                </div>
+            </div>
+            <div style="margin-left:17px; width:2px; height:16px; background:var(--border);"></div>
+            <div style="display:flex; align-items:flex-start; gap:16px; margin-bottom:8px;">
+                <div style="flex-shrink:0; width:36px; height:36px; border-radius:50%; background:var(--neon-yellow); color:var(--dark); font-family:var(--pixel); font-size:12px; display:flex; align-items:center; justify-content:center; box-shadow:0 0 12px var(--neon-yellow);">4</div>
+                <div>
+                    <div style="font-family:var(--pixel); font-size:11px; color:var(--neon-yellow); margin-bottom:4px;">CROSS-ENCODER RERANKER <span style="font-family:sans-serif; font-size:10px; opacity:0.7;">(optional)</span></div>
+                    <p style="font-size:13px;">Reads each (query, doc) pair together for precise relevance scoring. Solves vocabulary mismatch. +50ms, +10-25% precision.</p>
+                </div>
+            </div>
+            <div style="margin-left:17px; width:2px; height:16px; background:var(--border);"></div>
+            <div style="display:flex; align-items:flex-start; gap:16px;">
+                <div style="flex-shrink:0; width:36px; height:36px; border-radius:50%; background:var(--neon-green); color:var(--dark); font-family:var(--pixel); font-size:12px; display:flex; align-items:center; justify-content:center; box-shadow:0 0 12px var(--neon-green);">5</div>
+                <div>
+                    <div style="font-family:var(--pixel); font-size:11px; color:var(--neon-green); margin-bottom:4px;">RELEVANCE FILTER &amp; RETURN</div>
+                    <p style="font-size:13px;">Configurable minimum threshold. Only the most relevant chunks reach the AI agent. Zero noise.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="features">
         <h2>// FEATURES</h2>
         <div class="features-grid">
-            <div class="feature-card">
+            <div class="feature-card" style="border-color: var(--neon-cyan); box-shadow: 0 0 20px rgba(0, 255, 247, 0.1);">
                 <div class="icon">&#128270;</div>
-                <h3>HYBRID SEARCH</h3>
-                <p>Semantic vectors + BM25 keywords merged via Reciprocal Rank Fusion. Finds docs by meaning <em>and</em> exact terms &mdash; best of both worlds.</p>
+                <h3>HYBRID SEARCH + RERANKER</h3>
+                <p>Semantic vectors + BM25 keywords merged via RRF. Optional <span style="color:var(--neon-cyan);">cross-encoder reranker</span> rescores candidates for 10-25% higher precision &mdash; "auth bypass" finds "client-side auth flag".</p>
             </div>
             <div class="feature-card">
                 <div class="icon">&#9997;</div>
