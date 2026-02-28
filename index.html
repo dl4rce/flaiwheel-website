@@ -189,205 +189,137 @@
             text-shadow: 0 0 8px var(--neon-cyan);
             margin-bottom: 12px;
         }
-
-        /* Diagram Layout */
+        /* ── Lean USP Diagram ─────────────── */
         .diagram-container {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px;
+            gap: 28px;
             width: 100%;
-            max-width: 1000px;
-            position: relative;
+            max-width: 980px;
+            margin: 30px auto 0;
         }
-
-        @media (max-width: 850px) {
+        @media (max-width: 900px) {
             .diagram-container {
                 flex-direction: column;
-                gap: 40px;
+                gap: 20px;
             }
         }
 
-        /* Core Environments (Left and Right) */
         .core {
-            border: 1px dashed var(--border-dim);
-            border-radius: 20px;
-            padding: 30px;
-            width: 320px;
-            background: rgba(20, 20, 30, 0.4);
+            border: 1px dashed var(--border);
+            border-radius: 16px;
+            padding: 26px;
+            width: min(320px, 100%);
+            background: rgba(20, 20, 30, 0.45);
             display: flex;
             flex-direction: column;
             align-items: center;
-            position: relative;
-            box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
+            box-shadow: inset 0 0 26px rgba(0, 0, 0, 0.45);
         }
+        .left-core { border-color: rgba(0, 255, 247, 0.18); }
+        .right-core { border-color: rgba(57, 255, 20, 0.18); }
 
         .core-title {
             font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-            margin-bottom: 30px;
-            text-align: center;
+            font-weight: 700;
             letter-spacing: 1px;
+            margin-bottom: 18px;
+            text-align: center;
         }
-
-        .left-core { border-color: rgba(0, 255, 255, 0.2); }
         .left-core .core-title { color: var(--neon-cyan); }
-        
-        .right-core { border-color: rgba(57, 255, 20, 0.2); }
         .right-core .core-title { color: var(--neon-green); }
 
-        /* The MCP Bridge (Middle) */
+        .step-box {
+            width: 100%;
+            background: #15151e;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 14px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #ddd;
+        }
+        .step-arrow {
+            color: var(--neon-cyan);
+            font-size: 18px;
+            margin: 8px 0;
+            font-family: sans-serif;
+        }
+
         .mcp-bridge {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 15px;
-            z-index: 10;
+            gap: 10px;
+            min-width: 210px;
         }
-
         .bridge-pill {
             background: #111;
             border: 1px solid var(--neon-magenta);
             color: var(--neon-magenta);
-            padding: 10px 20px;
             border-radius: 8px;
+            padding: 12px 18px;
             font-family: 'Courier New', Courier, monospace;
-            font-size: 14px;
-            font-weight: bold;
-            box-shadow: 0 0 15px rgba(255, 0, 255, 0.15);
-            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            box-shadow: 0 0 14px rgba(255, 0, 255, 0.18);
             white-space: nowrap;
         }
-
-        /* Arrows/Flow lines */
-        .connection-arrow {
-            position: absolute;
-            font-size: 24px;
+        .bridge-note {
+            font-size: 11px;
             color: var(--text-dim);
-        }
-
-        /* Action Steps */
-        .step-box {
-            background: #15151e;
-            border: 1px solid var(--border-dim);
-            border-radius: 8px;
-            padding: 12px 16px;
-            width: 80%;
+            letter-spacing: 0.3px;
             text-align: center;
-            margin: 10px 0;
-            font-size: 13px;
-            font-weight: bold;
-            color: #ddd;
+        }
+
+        .trust-badge {
+            border: 1px dashed rgba(57, 255, 20, 0.4);
+            border-radius: 6px;
+            background: rgba(57, 255, 20, 0.05);
+            padding: 8px 10px;
+            margin-bottom: 14px;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: all 0.3s;
+            flex-direction: column;
+            gap: 2px;
+            text-align: center;
+        }
+        .trust-badge span {
+            font-family: var(--pixel);
+            font-size: 8px;
+            color: var(--neon-green);
+            line-height: 1.5;
+            letter-spacing: 0.5px;
         }
 
-        .step-box span.num {
-            opacity: 0.7;
-            font-family: 'Courier New', Courier, monospace;
-        }
-
-        /* Vector DB Centerpiece */
         .vector-db {
-            width: 140px;
-            height: 140px;
+            width: 148px;
+            height: 148px;
             border-radius: 50%;
             border: 2px solid var(--neon-green);
+            background: radial-gradient(circle, rgba(57, 255, 20, 0.09) 0%, rgba(0, 0, 0, 0) 72%);
+            box-shadow: 0 0 28px rgba(57, 255, 20, 0.11), inset 0 0 16px rgba(57, 255, 20, 0.09);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 30px rgba(57, 255, 20, 0.1), inset 0 0 20px rgba(57, 255, 20, 0.1);
-            margin: 20px 0;
-            background: radial-gradient(circle, rgba(57,255,20,0.1) 0%, rgba(0,0,0,0) 70%);
+            text-align: center;
         }
-
         .vector-db .icon {
             font-size: 32px;
             margin-bottom: 5px;
         }
-
         .vector-db .label {
             font-family: 'Courier New', Courier, monospace;
-            color: var(--neon-green);
-            font-weight: bold;
             font-size: 14px;
+            font-weight: 700;
+            color: var(--neon-green);
         }
         .vector-db .sublabel {
-            font-size: 10px;
-            color: var(--text-dim);
             margin-top: 4px;
-        }
-
-        /* Feature Chips */
-        .chip-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 15px;
-        }
-
-        .chip {
-            border: 1px solid;
-            border-radius: 6px;
-            padding: 8px 12px;
-            font-size: 11px;
-            text-align: center;
-            background: rgba(0,0,0,0.5);
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .chip .chip-title {
-            font-family: 'Courier New', Courier, monospace;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .chip .chip-desc {
-            color: var(--text-dim);
             font-size: 10px;
-        }
-
-        .chip.green { border-color: var(--neon-green); }
-        .chip.green .chip-title { color: var(--neon-green); }
-        
-        .chip.cyan { border-color: var(--neon-cyan); }
-        .chip.cyan .chip-title { color: var(--neon-cyan); }
-        
-        .chip.magenta { border-color: var(--neon-magenta); }
-        .chip.magenta .chip-title { color: var(--neon-magenta); }
-
-        .chip.yellow { border-color: var(--neon-yellow); }
-        .chip.yellow .chip-title { color: var(--neon-yellow); }
-
-        .chip.orange { border-color: var(--neon-orange); }
-        .chip.orange .chip-title { color: var(--neon-orange); }
-
-        /* Flow SVG Connections */
-        svg.flow-lines {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
-        .flow-line {
-            fill: none;
-            stroke: var(--text-dim);
-            stroke-width: 1.5;
-            stroke-dasharray: 4 4;
-            animation: dash 20s linear infinite;
-        }
-        @keyframes dash {
-            to { stroke-dashoffset: -100; }
+            color: var(--text-dim);
         }
     
 
@@ -602,91 +534,39 @@
     <section id="how">
         <h2>// HOW THE FLYWHEEL WORKS</h2>
         <p style="text-align:center; max-width:680px; margin:0 auto 16px; font-size:16px;">
-            Every bugfix, architecture decision, and session summary feeds back into the knowledge base.
-            Telemetry watches for gaps and nudges agents to document. The flywheel accelerates itself.
+            AI agents write. Flaiwheel remembers. Everything stays local and compounds over time.
         </p>
-
-        <!-- Figure-8 Flywheel Diagram -->
+        <!-- Lean USP Diagram -->
         <div class="diagram-container">
-        
-        <!-- Background Flow Lines (Desktop only approximate visualization) -->
-        <svg class="flow-lines" preserveAspectRatio="none">
-            <!-- Top connection: Agent -> MCP -> Search -->
-            <path class="flow-line" d="M 280,100 C 400,100 600,100 720,100" />
-            <!-- Bottom connection: DB -> MCP -> Context -->
-            <path class="flow-line" d="M 720,350 C 600,350 400,350 280,350" />
-        </svg>
-
-        <!-- Left Core: The IDE / Agent -->
-        <div class="core left-core">
-            <div class="core-title">[ AI CODING AGENT ]<br><span style="font-size: 12px; color: var(--text-dim); font-family: sans-serif;">Cursor / Claude Code / Copilot</span></div>
-            
-            <div class="step-box" style="border-color: rgba(0, 255, 255, 0.4);">
-                <span class="num">①</span> PLAN & QUERY
-            </div>
-            
-            <div style="font-size: 20px; color: var(--neon-cyan); margin: 5px 0;">↓</div>
-            
-            <div class="step-box">
-                <span class="num">②</span> CODE & FIX
-            </div>
-            
-            <div style="font-size: 20px; color: var(--neon-cyan); margin: 5px 0;">↓</div>
-            
-            <div class="step-box" style="border-color: rgba(255, 0, 255, 0.4);">
-                <span class="num">③</span> DOCUMENT
+            <div class="core left-core">
+                <div class="core-title">[ AI AGENTS ]<br><span style="font-size: 12px; color: var(--text-dim); font-family: sans-serif;">Cursor / Claude Code / Copilot</span></div>
+                <div class="step-box">QUERY &amp; PLAN</div>
+                <div class="step-arrow">&#8595;</div>
+                <div class="step-box">CODE &amp; FIX</div>
+                <div class="step-arrow">&#8595;</div>
+                <div class="step-box">DOCUMENT</div>
             </div>
 
-            <div class="chip-container">
-                <div class="chip cyan">
-                    <span class="chip-title">SESSION MEMORY</span>
-                    <span class="chip-desc">Context survives restarts</span>
+            <div class="mcp-bridge">
+                <div class="bridge-pill">&#8646; MCP BRIDGE &#8646;</div>
+                <div class="bridge-note">Cross-agent memory runtime</div>
+            </div>
+
+            <div class="core right-core">
+                <div class="core-title">[ LOCAL MEMORY ENGINE ]</div>
+                <div class="trust-badge">
+                    <span>SELF-CONTAINED DOCKER</span>
+                    <span>NO EXTERNAL CLOUD</span>
+                </div>
+                <div class="vector-db">
+                    <div class="icon">&#129504;</div>
+                    <div class="label">KNOWLEDGE DB</div>
+                    <div class="sublabel">ChromaDB + Git memory</div>
                 </div>
             </div>
         </div>
 
-        <!-- Middle: MCP Bridge -->
-        <div class="mcp-bridge">
-            <div class="bridge-pill">⇄ MCP PROTOCOL BRIDGE ⇄</div>
-            
-            <div class="chip magenta" style="margin-top: 20px;">
-                <span class="chip-title">TELEMETRY & NUDGES</span>
-                <span class="chip-desc">Tracks activity • Prompts agents</span>
-            </div>
-        </div>
-
-        <!-- Right Core: Flaiwheel Knowledge Engine -->
-        <div class="core right-core">
-            <div class="core-title">[ FLAIWHEEL ENGINE ]<br><span style="font-size: 10px; color: var(--neon-green); font-family: 'Courier New', monospace; text-transform: uppercase; font-weight: bold; letter-spacing: 1px; display: inline-block; margin-top: 12px; padding: 6px 10px; background: rgba(57,255,20,0.05); border: 1px dashed rgba(57,255,20,0.4); border-radius: 4px; text-shadow: none;">100% LOCAL DOCKER <br> ZERO DEPENDENCIES</span></div>
-            
-            <div class="chip-container">
-                <div class="chip green">
-                    <span class="chip-title">HYBRID SEARCH</span>
-                    <span class="chip-desc">Vectors + BM25 + RRF</span>
-                </div>
-            </div>
-
-            <div class="vector-db">
-                <div class="icon">🧠</div>
-                <div class="label">VECTOR DB</div><div class="sublabel">ChromaDB</div>
-            </div>
-
-            <div class="chip-container">
-                <div class="chip yellow">
-                    <span class="chip-title">QUALITY GATE</span>
-                    <span class="chip-desc">Validates before ingest</span>
-                </div>
-                <div class="chip orange">
-                    <span class="chip-title">GIT AUTO-SYNC</span>
-                    <span class="chip-desc">Write → commit → push</span>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    
-        <p style="text-align:center; color:var(--neon-yellow); font-family:var(--pixel); font-size:11px; margin-top:60px; text-shadow: 0 0 8px rgba(255, 234, 0, 0.3);">
+        <p style="text-align:center; color:var(--neon-yellow); font-family:var(--pixel); font-size:11px; margin-top:40px; text-shadow: 0 0 8px rgba(255, 234, 0, 0.3);">
             THE CYCLE NEVER STOPS. KNOWLEDGE ONLY GROWS.
         </p>
     </section>
