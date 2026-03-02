@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flaiwheel — Every Bug Fixed Makes the Next Bug Cheaper</title>
-    <meta name="description" content="Self-improving knowledge base for AI coding agents. Free, self-hosted, MCP-native. 26 tools, multi-repo support. For Cursor, Claude Code &amp; VS Code Copilot.">
+    <meta name="description" content="Self-improving knowledge base for AI coding agents. Free, self-hosted, MCP-native. 27 tools, multi-repo support. For Cursor, Claude Code &amp; VS Code Copilot.">
     <meta name="keywords" content="Flaiwheel, MCP, AI coding agent, knowledge base, semantic search, Cursor, Claude Code, VS Code Copilot, self-hosted, Docker, developer tools, bugfix documentation, vector search, ChromaDB">
     <meta name="author" content="4rce.com Digital Technologies GmbH">
     <meta name="robots" content="index, follow">
@@ -18,13 +18,13 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://flaiwheel.app/">
     <meta property="og:title" content="Flaiwheel — Self-Improving Knowledge Base for AI Coding Agents">
-    <meta property="og:description" content="Every bug fixed makes the next bug cheaper. Free, self-hosted, MCP-native. 26 tools, multi-repo support. For Cursor, Claude Code &amp; VS Code Copilot.">
+    <meta property="og:description" content="Every bug fixed makes the next bug cheaper. Free, self-hosted, MCP-native. 27 tools, multi-repo support. For Cursor, Claude Code &amp; VS Code Copilot.">
     <meta property="og:image" content="https://flaiwheel.app/og-image.png">
     <meta property="og:site_name" content="Flaiwheel">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Flaiwheel — Self-Improving Knowledge Base for AI Coding Agents">
-    <meta name="twitter:description" content="Every bug fixed makes the next bug cheaper. Free, self-hosted, MCP-native. 26 tools, multi-repo support. For Cursor, Claude Code &amp; VS Code Copilot.">
+    <meta name="twitter:description" content="Every bug fixed makes the next bug cheaper. Free, self-hosted, MCP-native. 27 tools, multi-repo support. For Cursor, Claude Code &amp; VS Code Copilot.">
     <meta name="twitter:image" content="https://flaiwheel.app/og-image.png">
 
     <script type="application/ld+json">
@@ -33,7 +33,7 @@
         "@type": "SoftwareApplication",
         "name": "Flaiwheel",
         "url": "https://flaiwheel.app",
-        "description": "Self-improving knowledge base for AI coding agents. Self-hosted, MCP-native, 26 structured tools, multi-repo support.",
+        "description": "Self-improving knowledge base for AI coding agents. Self-hosted, MCP-native, 27 structured tools, multi-repo support.",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Linux, macOS, Windows (Docker)",
         "offers": [
@@ -60,7 +60,7 @@
         },
         "license": "https://github.com/dl4rce/flaiwheel/blob/main/LICENSE.md",
         "downloadUrl": "https://github.com/dl4rce/flaiwheel",
-        "softwareVersion": "2.9.0"
+        "softwareVersion": "3.0.0"
     }
     </script>
 
@@ -546,7 +546,7 @@
                 <div class="label">Faster Development</div>
             </div>
             <div class="stat">
-                <div class="num">26</div>
+                <div class="num">27</div>
                 <div class="label">MCP Tools</div>
             </div>
             <div class="stat">
@@ -574,16 +574,30 @@
         <div class="diagram-container">
             <div class="core left-core">
                 <div class="core-title">[ AI AGENTS ]<br><span style="font-size: 11px; color: var(--text-dim); font-family: sans-serif; font-weight: normal; letter-spacing: 0; margin-top: 6px; display: inline-block;">Cursor / Claude Code / Copilot</span></div>
-                <div class="step-box">QUERY &amp; PLAN</div>
+                <div class="step-box" style="position:relative;">
+                    QUERY &amp; PLAN
+                    <span style="position:absolute; right:-2px; top:50%; transform:translateY(-50%) translateX(100%); font-family:var(--pixel); font-size:7px; color:var(--neon-green); white-space:nowrap; padding-left:6px; opacity:0.7;">AUTO-SEARCH ✦</span>
+                </div>
                 <div class="step-arrow">&#8595;</div>
                 <div class="step-box">CODE &amp; FIX</div>
                 <div class="step-arrow">&#8595;</div>
-                <div class="step-box">DOCUMENT</div>
+                <div class="step-box" style="position:relative;">
+                    DOCUMENT
+                    <span style="position:absolute; right:-2px; top:50%; transform:translateY(-50%) translateX(100%); font-family:var(--pixel); font-size:7px; color:var(--neon-green); white-space:nowrap; padding-left:6px; opacity:0.7;">AUTO-DOC ✦</span>
+                </div>
+                <!-- git hook feed -->
+                <div style="margin-top:14px; width:100%; border:1px dashed rgba(255,230,0,0.3); border-radius:6px; padding:8px 10px; text-align:center; background:rgba(255,230,0,0.04);">
+                    <div style="font-family:var(--pixel); font-size:8px; color:var(--neon-yellow); margin-bottom:4px; text-shadow:0 0 6px rgba(255,230,0,0.4);">&#9741; GIT HOOK</div>
+                    <div style="font-size:11px; color:var(--text);">Commits auto-captured<br>to knowledge base</div>
+                </div>
             </div>
 
             <div class="mcp-bridge">
                 <div class="bridge-pill">&#8646; MCP BRIDGE &#8646;</div>
-                <div class="bridge-note">Cross-agent memory runtime<br><span style="color:var(--neon-yellow); font-weight:bold; margin-top:6px; display:inline-block; font-family:var(--pixel); font-size:8px; text-shadow: 0 0 5px var(--neon-yellow);">+ SMART NUDGES</span></div>
+                <div class="bridge-note">Cross-agent memory runtime</div>
+                <div style="font-family:var(--pixel); font-size:8px; color:var(--neon-yellow); text-align:center; text-shadow:0 0 5px var(--neon-yellow); margin-top:2px;">+ SMART NUDGES</div>
+                <div style="font-family:var(--pixel); font-size:7px; color:var(--neon-green); text-align:center; text-shadow:0 0 4px rgba(57,255,20,0.5); margin-top:4px;">+ DIRECTIVES</div>
+                <div style="font-family:var(--pixel); font-size:7px; color:var(--neon-cyan); text-align:center; text-shadow:0 0 4px rgba(0,255,247,0.4); margin-top:4px;">+ FILE CONTEXT</div>
             </div>
 
             <div class="core right-core">
@@ -711,11 +725,26 @@
                 <h3>"THIS IS THE WAY"</h3>
                 <p>Knowledge Bootstrap &mdash; classify files by content + embeddings, detect near-duplicates, propose a cleanup plan. Never deletes files. User approves every action. Also triggered by saying <span style="color:var(--neon-yellow);">"42"</span>.</p>
             </div>
+            <div class="feature-card" style="border-color: var(--neon-green); box-shadow: 0 0 20px rgba(57, 255, 20, 0.1);">
+                <div class="icon">&#129302;</div>
+                <h3>BEHAVIORAL DIRECTIVES</h3>
+                <p>AI agents silently search before coding, auto-document after every bugfix, and reuse existing knowledge before creating new. <span style="color:var(--neon-green);">Zero prompting required</span> &mdash; Flaiwheel just works in the background.</p>
+            </div>
+            <div class="feature-card" style="border-color: var(--neon-yellow); box-shadow: 0 0 20px rgba(255, 230, 0, 0.08);">
+                <div class="icon">&#128279;</div>
+                <h3>POST-COMMIT GIT HOOK</h3>
+                <p>Every <code style="color:var(--neon-green); background:rgba(57,255,20,0.08); padding:2px 4px; font-size:11px;">fix:</code>, <code style="color:var(--neon-green); background:rgba(57,255,20,0.08); padding:2px 4px; font-size:11px;">feat:</code>, <code style="color:var(--neon-green); background:rgba(57,255,20,0.08); padding:2px 4px; font-size:11px;">refactor:</code> commit is automatically captured into the knowledge base. IDE-agnostic &mdash; works with any editor, any workflow.</p>
+            </div>
+            <div class="feature-card" style="border-color: rgba(0,255,247,0.4); box-shadow: 0 0 20px rgba(0,255,247,0.08);">
+                <div class="icon">&#128270;</div>
+                <h3>FILE CONTEXT PRE-LOADING</h3>
+                <p><code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">get_file_context()</code> delivers <span style="color:var(--neon-cyan);">spatial knowledge</span> the moment an agent touches a file &mdash; past bugs, architecture decisions, and patterns, all scoped to that exact code area.</p>
+            </div>
         </div>
     </section>
 
     <section id="tools">
-        <h2>// 26 MCP TOOLS</h2>
+        <h2>// 27 MCP TOOLS</h2>
         <p style="text-align:center; margin-bottom:24px;">
             Works with Cursor, Claude Code, VS Code Copilot &mdash; any MCP-compatible AI agent.
         </p>
@@ -747,6 +776,7 @@
             <tr style="background:rgba(255,230,0,0.03);"><td>classify_documents</td><td>"This is the Way" &mdash; classify project docs for knowledge migration</td></tr>
             <tr><td>save_session_summary</td><td>Save session context for next-session continuity</td></tr>
             <tr><td>get_recent_sessions</td><td>Retrieve recent session summaries (newest first)</td></tr>
+            <tr style="background:rgba(0,255,247,0.03);"><td>get_file_context</td><td>Spatial knowledge &mdash; past bugs &amp; decisions scoped to a specific file</td></tr>
         </table>
         <p style="text-align:center; margin-top:16px; font-size:13px; color:var(--text);">
             All tools accept an optional <code style="color:var(--neon-green); background:rgba(57,255,20,0.08); padding:2px 6px;">project</code> parameter for multi-repo targeting.
@@ -764,7 +794,7 @@
                     <li>&#10003; MCP-native</li>
                     <li>&#10003; Auto-learning flywheel</li>
                     <li>&#10003; Quality enforcement</li>
-                    <li>&#10003; 26 structured tools</li>
+                    <li>&#10003; 27 structured tools</li>
                     <li>&#10003; 100% private</li>
                 </ul>
             </div>
@@ -804,7 +834,7 @@
                 <ul>
                     <li>Non-commercial use</li>
                     <li>Teams up to 10 people</li>
-                    <li>All 26 MCP tools</li>
+                    <li>All 27 MCP tools</li>
                     <li>Unlimited docs &amp; searches</li>
                     <li>Self-hosted, fully private</li>
                     <li>Community support (GitHub)</li>
@@ -844,7 +874,7 @@
         <div class="install-box">
             <p style="font-family:var(--pixel); font-size:11px; color:var(--neon-yellow);">RUN FROM YOUR PROJECT DIRECTORY:</p>
             <code onclick="navigator.clipboard.writeText(this.textContent.trim());this.style.borderColor='var(--neon-yellow)';setTimeout(()=>this.style.borderColor='var(--border)',1000);">curl -sSL https://raw.githubusercontent.com/dl4rce/flaiwheel/main/scripts/install.sh | bash</code>
-            <p class="note">Click to copy. Sets up everything: knowledge repo, Docker container, Cursor config, AI agent instructions.</p>
+            <p class="note">Click to copy. Sets up everything: knowledge repo, Docker container, Cursor config, AI agent instructions, and post-commit git hook.</p>
         </div>
     </section>
 
