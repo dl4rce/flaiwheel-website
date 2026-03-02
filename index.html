@@ -598,6 +598,8 @@
                 <div style="font-family:var(--pixel); font-size:8px; color:var(--neon-yellow); text-align:center; text-shadow:0 0 5px var(--neon-yellow); margin-top:2px;">+ SMART NUDGES</div>
                 <div style="font-family:var(--pixel); font-size:7px; color:var(--neon-green); text-align:center; text-shadow:0 0 4px rgba(57,255,20,0.5); margin-top:4px;">+ DIRECTIVES</div>
                 <div style="font-family:var(--pixel); font-size:7px; color:var(--neon-cyan); text-align:center; text-shadow:0 0 4px rgba(0,255,247,0.4); margin-top:4px;">+ FILE CONTEXT</div>
+                <div style="font-family:var(--pixel); font-size:7px; color:var(--neon-green); text-align:center; text-shadow:0 0 4px rgba(57,255,20,0.5); margin-top:4px;">+ PERSISTENT TELEMETRY</div>
+                <div style="font-family:var(--pixel); font-size:7px; color:var(--neon-magenta); text-align:center; text-shadow:0 0 4px rgba(255,0,255,0.5); margin-top:4px;">+ IMPACT METRICS</div>
             </div>
 
             <div class="core right-core">
@@ -605,7 +607,7 @@
                 <div class="vector-db">
                     <div class="icon">&#129504;</div>
                     <div class="label">KNOWLEDGE DB</div>
-                    <div class="sublabel">ChromaDB + Git memory</div>
+                    <div class="sublabel">ChromaDB + Git memory + telemetry</div>
                     <div class="trust-badge">
                         <span>100% LOCAL DOCKER</span>
                         <span>NO EXTERNAL CLOUD</span>
@@ -670,7 +672,7 @@
     <section id="features">
         <h2>// FEATURES</h2>
         <div class="features-grid">
-            <div class="feature-card" style="border-color: var(--neon-cyan); box-shadow: 0 0 20px rgba(0, 255, 247, 0.1);">
+            <div class="feature-card">
                 <div class="icon">&#128270;</div>
                 <h3>HYBRID SEARCH + RERANKER</h3>
                 <p>Semantic vectors + BM25 keywords merged via RRF. Optional <span style="color:var(--neon-cyan);">cross-encoder reranker</span> rescores candidates for 10-25% higher precision &mdash; "auth bypass" finds "client-side auth flag".</p>
@@ -692,8 +694,8 @@
             </div>
             <div class="feature-card">
                 <div class="icon">&#128202;</div>
-                <h3>TELEMETRY &amp; SMART NUDGES</h3>
-                <p>Tracks every MCP call. If an agent fixes a bug but forgets to document it, Flaiwheel injects an <span style="color:var(--neon-yellow);">in-band prompt nudge</span> directly into the tool response, forcing the LLM to write the summary before it replies to you.</p>
+                <h3>PERSISTENT TELEMETRY &amp; SMART NUDGES</h3>
+                <p>Tracks every MCP call and <span style="color:var(--neon-cyan);">persists telemetry across restarts and updates</span>. If an agent fixes a bug but forgets to document it, Flaiwheel injects an in-band nudge. Teams can also track estimated time saved and regressions avoided via impact metrics.</p>
             </div>
             <div class="feature-card">
                 <div class="icon">&#128274;</div>
@@ -720,22 +722,22 @@
                 <h3>LIVING ARCHITECTURE &amp; BDD</h3>
                 <p>Agents generate auto-updating <span style="color:var(--neon-magenta);">Mermaid.js UML diagrams</span> for system components and executable BDD test flows (<code style="color:var(--neon-green); background:rgba(57,255,20,0.08); padding:2px 4px; font-size:11px;">Given/When/Then</code>). Your documentation becomes input for automated QA testing.</p>
             </div>
-            <div class="feature-card" style="border-color: var(--neon-yellow); box-shadow: 0 0 20px rgba(255, 230, 0, 0.1);">
+            <div class="feature-card">
                 <div class="icon">&#127756;</div>
                 <h3>"THIS IS THE WAY"</h3>
                 <p>Knowledge Bootstrap &mdash; classify files by content + embeddings, detect near-duplicates, propose a cleanup plan. Never deletes files. User approves every action. Also triggered by saying <span style="color:var(--neon-yellow);">"42"</span>.</p>
             </div>
-            <div class="feature-card" style="border-color: var(--neon-green); box-shadow: 0 0 20px rgba(57, 255, 20, 0.1);">
+            <div class="feature-card">
                 <div class="icon">&#129302;</div>
                 <h3>BEHAVIORAL DIRECTIVES</h3>
                 <p>AI agents silently search before coding, auto-document after every bugfix, and reuse existing knowledge before creating new. <span style="color:var(--neon-green);">Zero prompting required</span> &mdash; Flaiwheel just works in the background.</p>
             </div>
-            <div class="feature-card" style="border-color: var(--neon-yellow); box-shadow: 0 0 20px rgba(255, 230, 0, 0.08);">
+            <div class="feature-card">
                 <div class="icon">&#128279;</div>
                 <h3>POST-COMMIT GIT HOOK</h3>
                 <p>Every <code style="color:var(--neon-green); background:rgba(57,255,20,0.08); padding:2px 4px; font-size:11px;">fix:</code>, <code style="color:var(--neon-green); background:rgba(57,255,20,0.08); padding:2px 4px; font-size:11px;">feat:</code>, <code style="color:var(--neon-green); background:rgba(57,255,20,0.08); padding:2px 4px; font-size:11px;">refactor:</code> commit is automatically captured into the knowledge base. IDE-agnostic &mdash; works with any editor, any workflow.</p>
             </div>
-            <div class="feature-card" style="border-color: rgba(0,255,247,0.4); box-shadow: 0 0 20px rgba(0,255,247,0.08);">
+            <div class="feature-card">
                 <div class="icon">&#128270;</div>
                 <h3>FILE CONTEXT PRE-LOADING</h3>
                 <p><code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">get_file_context()</code> delivers <span style="color:var(--neon-cyan);">spatial knowledge</span> the moment an agent touches a file &mdash; past bugs, architecture decisions, and patterns, all scoped to that exact code area.</p>
