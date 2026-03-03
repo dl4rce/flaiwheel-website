@@ -1175,6 +1175,73 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('consent-banner').classList.add('hidden');
     }
 });
+
+// GA4 Event Tracking
+document.addEventListener('DOMContentLoaded', function() {
+    // Track CTA clicks
+    var ctaSelectors = {
+        'install': ['a[href="#install"]', '.btn:contains("INSERT COIN")'],
+        'github': ['a[href*="github.com/dl4rce/flaiwheel"]'],
+        'contact': ['a[href="mailto:info@4rce.com"]', 'a[href*="mailto:info"]'],
+        'pricing': ['a[href="#pricing"]', 'a[href="https://aicollab.app"]']
+    };
+
+    Object.keys(ctaSelectors).forEach(function(ctaName) {
+        document.querySelectorAll('a, button').forEach(function(el) {
+            var href = el.getAttribute('href') || '';
+            var text = el.textContent.toLowerCase();
+            
+            if (href.includes('#install') || href.includes('install') || text.includes('insert coin')) {
+                el.addEventListener('click', function() {
+                    gtag('event', 'cta_click', { cta_name: 'install' });
+                });
+            }
+            if (href.includes('github.com/dl4rce/flaiwheel') || text.includes('view source') || text.includes('github')) {
+                el.addEventListener('click', function() {
+                    gtag('event', 'cta_click', { cta_name: 'github' });
+                });
+            }
+            if (href.includes('mailto:info') || text.includes('contact')) {
+                el.addEventListener('click', function() {
+                    gtag('event', 'cta_click', { cta_name: 'contact' });
+                });
+            }
+            if (href.includes('#pricing') || text.includes('pricing')) {
+                el.addEventListener('click', function() {
+                    gtag('event', 'cta_click', { cta_name: 'pricing' });
+                });
+            }
+        });
+    });
+
+    // Track scroll depth
+    var scrollTracked = {};
+    window.addEventListener('scroll', function() {
+        var scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+        [25, 50, 75, 90].forEach(function(depth) {
+            if (scrollPercent >= depth && !scrollTracked[depth]) {
+                scrollTracked[depth] = true;
+                gtag('event', 'scroll_depth', { scroll_percent: depth });
+            }
+        });
+    });
+
+    // Track section views
+    var sections = document.querySelectorAll('section[id]');
+    if (window.IntersectionObserver) {
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    gtag('event', 'section_view', { section_id: entry.target.id });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        sections.forEach(function(section) {
+            observer.observe(section);
+        });
+    }
+});
 </script>
 
 </body>
