@@ -9,6 +9,28 @@
     <meta name="author" content="4rce.com Digital Technologies GmbH">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://flaiwheel.app/">
+
+    <!-- Google Analytics (loaded only after consent) -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      // Initialize GA in consent mode (disabled until user accepts)
+      function loadGoogleAnalytics() {
+        gtag('config', 'G-6YFJ7JQBRL');
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-6YFJ7JQBRL';
+        document.head.appendChild(script);
+      }
+
+      // Check if user has already consented
+      var gaConsent = localStorage.getItem('flaiwheel_ga_consent');
+      if (gaConsent === 'accepted') {
+        loadGoogleAnalytics();
+      }
+    </script>
     
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
@@ -33,7 +55,7 @@
         "@type": "SoftwareApplication",
         "name": "Flaiwheel",
         "url": "https://flaiwheel.app",
-        "description": "The persistent memory and governance layer for AI coding agents. Self-hosted Docker container, Git-native flat-file storage, zero lock-in. 27 MCP tools enforce knowledge capture, quality gates ensure high-signal retrieval, and engineering knowledge compounds automatically across sessions.",
+        "description": "The persistent memory and governance layer for AI coding agents. Self-hosted Docker container, Git-native flat-file storage, zero lock-in. 26 MCP tools enforce knowledge capture, quality gates ensure high-signal retrieval, and engineering knowledge compounds automatically across sessions.",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Linux, macOS, Windows (Docker)",
         "offers": [
@@ -439,7 +461,6 @@
         }
         .tools-table tr:hover { background: rgba(57, 255, 20, 0.03); }
 
-
         .install-box {
             background: var(--dark-card); border: 1px solid var(--neon-green);
             padding: 32px; margin-top: 32px; text-align: center;
@@ -543,9 +564,57 @@
             .hero .stats { gap: 24px; }
             section { padding: 80px 16px 60px; }
         }
+
+        /* Consent Banner */
+        .consent-banner {
+            position: fixed; bottom: 0; left: 0; right: 0; z-index: 999;
+            background: rgba(10, 10, 15, 0.95); backdrop-filter: blur(12px);
+            border-top: 1px solid var(--border);
+            padding: 20px 24px; display: flex; align-items: center; gap: 24px;
+            flex-wrap: wrap; justify-content: space-between;
+        }
+        .consent-banner.hidden { display: none; }
+        .consent-banner p {
+            font-size: 13px; color: var(--text); margin: 0;
+            flex: 1; min-width: 200px;
+        }
+        .consent-banner a {
+            color: var(--neon-cyan); text-decoration: none; cursor: pointer;
+        }
+        .consent-banner a:hover { text-decoration: underline; }
+        .consent-buttons { display: flex; gap: 12px; white-space: nowrap; }
+        .consent-btn {
+            font-family: var(--pixel); font-size: 10px; padding: 10px 20px;
+            border: 1px solid var(--border); background: transparent;
+            color: var(--text); cursor: pointer; border-radius: 4px;
+            transition: all 0.2s;
+        }
+        .consent-btn:hover {
+            border-color: var(--neon-cyan); color: var(--neon-cyan);
+        }
+        .consent-btn.accept {
+            border-color: var(--neon-green); color: var(--neon-green);
+            background: rgba(57, 255, 20, 0.05);
+        }
+        .consent-btn.accept:hover {
+            background: rgba(57, 255, 20, 0.1);
+            box-shadow: 0 0 12px rgba(57, 255, 20, 0.2);
+        }
     </style>
 </head>
 <body>
+
+<!-- Consent Banner -->
+<div id="consent-banner" class="consent-banner">
+    <p>
+        This site uses Google Analytics for anonymized usage statistics. 
+        See our <a onclick="document.getElementById('legal').scrollIntoView({behavior:'smooth'});">privacy policy</a> for details.
+    </p>
+    <div class="consent-buttons">
+        <button class="consent-btn" onclick="rejectConsent()">REJECT</button>
+        <button class="consent-btn accept" onclick="acceptConsent()">ACCEPT</button>
+    </div>
+</div>
 
 <canvas id="starfield"></canvas>
 <div class="scanlines"></div>
@@ -580,7 +649,7 @@
                 <div class="label">Faster Development</div>
             </div>
             <div class="stat">
-                <div class="num">27</div>
+                <div class="num">26</div>
                 <div class="label">MCP Tools</div>
             </div>
             <div class="stat">
@@ -608,32 +677,16 @@
         <div class="diagram-container">
             <div class="core left-core">
                 <div class="core-title">[ AI AGENTS ]<br><span style="font-size: 11px; color: var(--text-dim); font-family: sans-serif; font-weight: normal; letter-spacing: 0; margin-top: 6px; display: inline-block;">Cursor / Claude Code / Copilot</span></div>
-                <div class="step-box">
-                    QUERY &amp; PLAN
-                    <div style="font-family:var(--pixel); font-size:7px; color:var(--neon-green); margin-top:6px; opacity:0.8;">[ AUTO-SEARCH ]</div>
-                </div>
+                <div class="step-box">QUERY &amp; PLAN</div>
                 <div class="step-arrow">&#8595;</div>
                 <div class="step-box">CODE &amp; FIX</div>
                 <div class="step-arrow">&#8595;</div>
-                <div class="step-box">
-                    DOCUMENT
-                    <div style="font-family:var(--pixel); font-size:7px; color:var(--neon-green); margin-top:6px; opacity:0.8;">[ AUTO-DOC ]</div>
-                </div>
-                <!-- git hook feed -->
-                <div style="margin-top:14px; width:100%; border:1px dashed rgba(255,230,0,0.3); border-radius:6px; padding:8px 10px; text-align:center; background:rgba(255,230,0,0.04);">
-                    <div style="font-family:var(--pixel); font-size:8px; color:var(--neon-yellow); margin-bottom:4px; text-shadow:0 0 6px rgba(255,230,0,0.4);">&#9741; GIT HOOK</div>
-                    <div style="font-size:11px; color:var(--text);">Commits auto-captured<br>to knowledge base</div>
-                </div>
+                <div class="step-box">DOCUMENT</div>
             </div>
 
             <div class="mcp-bridge">
                 <div class="bridge-pill">&#8646; MCP BRIDGE &#8646;</div>
-                <div class="bridge-note">Cross-agent memory runtime</div>
-                <div style="font-family:var(--pixel); font-size:8px; color:var(--neon-yellow); text-align:center; text-shadow:0 0 5px var(--neon-yellow); margin-top:2px;">+ SMART NUDGES</div>
-                <div style="font-family:var(--pixel); font-size:7px; color:var(--neon-green); text-align:center; text-shadow:0 0 4px rgba(57,255,20,0.5); margin-top:4px;">+ DIRECTIVES</div>
-                <div style="font-family:var(--pixel); font-size:7px; color:var(--neon-cyan); text-align:center; text-shadow:0 0 4px rgba(0,255,247,0.4); margin-top:4px;">+ FILE CONTEXT</div>
-                <div style="font-family:var(--pixel); font-size:7px; color:var(--neon-green); text-align:center; text-shadow:0 0 4px rgba(57,255,20,0.5); margin-top:4px;">+ PERSISTENT TELEMETRY</div>
-                <div style="font-family:var(--pixel); font-size:7px; color:var(--neon-magenta); text-align:center; text-shadow:0 0 4px rgba(255,0,255,0.5); margin-top:4px;">+ IMPACT METRICS</div>
+                <div class="bridge-note">Cross-agent memory runtime<br><span style="color:var(--neon-yellow); font-weight:bold; margin-top:6px; display:inline-block; font-family:var(--pixel); font-size:8px; text-shadow: 0 0 5px var(--neon-yellow);">+ SMART NUDGES</span></div>
             </div>
 
             <div class="core right-core">
@@ -641,7 +694,7 @@
                 <div class="vector-db">
                     <div class="icon">&#129504;</div>
                     <div class="label">KNOWLEDGE DB</div>
-                    <div class="sublabel">ChromaDB + Git memory + telemetry</div>
+                    <div class="sublabel">ChromaDB + Git memory</div>
                     <div class="trust-badge">
                         <span>100% LOCAL DOCKER</span>
                         <span>NO EXTERNAL CLOUD</span>
@@ -706,7 +759,7 @@
     <section id="features">
         <h2>// FEATURES</h2>
         <div class="features-grid">
-            <div class="feature-card">
+            <div class="feature-card" style="border-color: var(--neon-cyan); box-shadow: 0 0 20px rgba(0, 255, 247, 0.1);">
                 <div class="icon">&#128270;</div>
                 <h3>HYBRID SEARCH + RERANKER</h3>
                 <p>Semantic vectors + BM25 keywords merged via RRF. Optional <span style="color:var(--neon-cyan);">cross-encoder reranker</span> rescores candidates for 10-25% higher precision &mdash; "auth bypass" finds "client-side auth flag".</p>
@@ -728,8 +781,8 @@
             </div>
             <div class="feature-card">
                 <div class="icon">&#128202;</div>
-                <h3>PERSISTENT TELEMETRY &amp; SMART NUDGES</h3>
-                <p>Tracks every MCP call and <span style="color:var(--neon-cyan);">persists telemetry across restarts and updates</span>. If an agent fixes a bug but forgets to document it, Flaiwheel injects an in-band nudge. Teams can also track estimated time saved and regressions avoided via impact metrics.</p>
+                <h3>TELEMETRY &amp; SMART NUDGES</h3>
+                <p>Tracks every MCP call. If an agent fixes a bug but forgets to document it, Flaiwheel injects an <span style="color:var(--neon-yellow);">in-band prompt nudge</span> directly into the tool response, forcing the LLM to write the summary before it replies to you.</p>
             </div>
             <div class="feature-card">
                 <div class="icon">&#128274;</div>
@@ -756,31 +809,16 @@
                 <h3>LIVING ARCHITECTURE &amp; BDD</h3>
                 <p>Agents generate auto-updating <span style="color:var(--neon-magenta);">Mermaid.js UML diagrams</span> for system components and executable BDD test flows (<code style="color:var(--neon-green); background:rgba(57,255,20,0.08); padding:2px 4px; font-size:11px;">Given/When/Then</code>). Your documentation becomes input for automated QA testing.</p>
             </div>
-            <div class="feature-card">
+            <div class="feature-card" style="border-color: var(--neon-yellow); box-shadow: 0 0 20px rgba(255, 230, 0, 0.1);">
                 <div class="icon">&#127756;</div>
                 <h3>"THIS IS THE WAY"</h3>
                 <p>Knowledge Bootstrap &mdash; classify files by content + embeddings, detect near-duplicates, propose a cleanup plan. Never deletes files. User approves every action. Also triggered by saying <span style="color:var(--neon-yellow);">"42"</span>.</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon">&#129302;</div>
-                <h3>BEHAVIORAL DIRECTIVES</h3>
-                <p>AI agents silently search before coding, auto-document after every bugfix, and reuse existing knowledge before creating new. <span style="color:var(--neon-green);">Zero prompting required</span> &mdash; Flaiwheel just works in the background.</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon">&#128279;</div>
-                <h3>POST-COMMIT GIT HOOK</h3>
-                <p>Every <code style="color:var(--neon-green); background:rgba(57,255,20,0.08); padding:2px 4px; font-size:11px;">fix:</code>, <code style="color:var(--neon-green); background:rgba(57,255,20,0.08); padding:2px 4px; font-size:11px;">feat:</code>, <code style="color:var(--neon-green); background:rgba(57,255,20,0.08); padding:2px 4px; font-size:11px;">refactor:</code> commit is automatically captured into the knowledge base. IDE-agnostic &mdash; works with any editor, any workflow.</p>
-            </div>
-            <div class="feature-card">
-                <div class="icon">&#128270;</div>
-                <h3>FILE CONTEXT PRE-LOADING</h3>
-                <p><code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">get_file_context()</code> delivers <span style="color:var(--neon-cyan);">spatial knowledge</span> the moment an agent touches a file &mdash; past bugs, architecture decisions, and patterns, all scoped to that exact code area.</p>
             </div>
         </div>
     </section>
 
     <section id="tools">
-        <h2>// 27 MCP TOOLS</h2>
+        <h2>// 26 MCP TOOLS</h2>
         <p style="text-align:center; margin-bottom:24px;">
             Works with Cursor, Claude Code, VS Code Copilot &mdash; any MCP-compatible AI agent.
         </p>
@@ -812,7 +850,6 @@
             <tr style="background:rgba(255,230,0,0.03);"><td>classify_documents</td><td>"This is the Way" &mdash; classify project docs for knowledge migration</td></tr>
             <tr><td>save_session_summary</td><td>Save session context for next-session continuity</td></tr>
             <tr><td>get_recent_sessions</td><td>Retrieve recent session summaries (newest first)</td></tr>
-            <tr style="background:rgba(0,255,247,0.03);"><td>get_file_context</td><td>Spatial knowledge &mdash; past bugs &amp; decisions scoped to a specific file</td></tr>
         </table>
         <p style="text-align:center; margin-top:16px; font-size:13px; color:var(--text);">
             All tools accept an optional <code style="color:var(--neon-green); background:rgba(57,255,20,0.08); padding:2px 6px;">project</code> parameter for multi-repo targeting.
@@ -822,7 +859,7 @@
     <section id="why-different">
         <h2>// WHY FLAIWHEEL IS DIFFERENT</h2>
         <p style="text-align:center; max-width:640px; margin:0 auto 48px; font-size:16px; line-height:1.8;">
-            AI coding tools accelerate code generation. They don’t preserve engineering knowledge.
+            AI coding tools accelerate code generation. They don't preserve engineering knowledge.
             Flaiwheel is the <span style="color:var(--neon-cyan);">memory and governance layer</span> that closes that gap — so every session builds on the last.
         </p>
 
@@ -852,7 +889,7 @@
                 <h3>STRUCTURED KNOWLEDGE + QUALITY GATES</h3>
                 <p>Seven category-specific write tools enforce consistency across bugfixes, architecture, API docs, tests, and more. Pre-commit validation and ingest checks ensure high-quality memory — bad docs are skipped, never deleted.</p>
             </div>
-            <div class="feature-card">
+            <div class="feature-card" style="border-color:rgba(57,255,20,0.25);box-shadow:0 0 16px rgba(57,255,20,0.06);">
                 <div style="font-family:var(--pixel);font-size:9px;color:var(--neon-yellow);margin-bottom:10px;text-shadow:0 0 6px rgba(255,230,0,0.4);">06</div>
                 <h3>ENTERPRISE-READY BY DESIGN</h3>
                 <p>Multi-repo support, model hot-swap without downtime, telemetry and impact metrics, living architecture diagrams (Mermaid.js), and executable BDD flows. Built for serious codebases — not hobby projects.</p>
@@ -869,15 +906,60 @@
                         <th style="text-align:center; color:var(--text);">GENERIC RAG / MEMORY</th>
                         <th style="text-align:center; color:var(--neon-green);">FLAIWHEEL</th>
                     </tr>
-                    <tr><td style="color:var(--text);">Persistent team memory</td><td style="text-align:center; color:#ff5555;">&#10007;</td><td style="text-align:center; color:var(--neon-green);">&#10003;</td><td style="text-align:center; color:var(--neon-green);">&#10003;</td></tr>
-                    <tr><td style="color:var(--text);">Knowledge capture enforced</td><td style="text-align:center; color:#ff5555;">&#10007;</td><td style="text-align:center; color:#ff5555;">&#10007;</td><td style="text-align:center; color:var(--neon-green);">&#10003;</td></tr>
-                    <tr><td style="color:var(--text);">Git-native flat-file storage</td><td style="text-align:center; color:#ff5555;">&#10007;</td><td style="text-align:center; color:#ff5555;">&#10007;</td><td style="text-align:center; color:var(--neon-green);">&#10003;</td></tr>
-                    <tr><td style="color:var(--text);">Knowledge quality gates</td><td style="text-align:center; color:#ff5555;">&#10007;</td><td style="text-align:center; color:#ff5555;">&#10007;</td><td style="text-align:center; color:var(--neon-green);">&#10003;</td></tr>
-                    <tr><td style="color:var(--text);">Hybrid retrieval + reranking</td><td style="text-align:center; color:var(--neon-yellow);">Partial</td><td style="text-align:center; color:var(--neon-yellow);">Sometimes</td><td style="text-align:center; color:var(--neon-green);">&#10003;</td></tr>
-                    <tr><td style="color:var(--text);">Fully self-hosted</td><td style="text-align:center; color:var(--neon-yellow);">Rare</td><td style="text-align:center; color:var(--neon-yellow);">Sometimes</td><td style="text-align:center; color:var(--neon-green);">&#10003;</td></tr>
-                    <tr><td style="color:var(--text);">Zero lock-in (flat files in Git)</td><td style="text-align:center; color:#ff5555;">&#10007;</td><td style="text-align:center; color:var(--neon-yellow);">Rare</td><td style="text-align:center; color:var(--neon-green);">&#10003;</td></tr>
-                    <tr><td style="color:var(--text);">AI workflow guardrails</td><td style="text-align:center; color:#ff5555;">&#10007;</td><td style="text-align:center; color:#ff5555;">&#10007;</td><td style="text-align:center; color:var(--neon-green);">&#10003;</td></tr>
-                    <tr><td style="color:var(--text);">Telemetry &amp; impact metrics</td><td style="text-align:center; color:#ff5555;">&#10007;</td><td style="text-align:center; color:#ff5555;">&#10007;</td><td style="text-align:center; color:var(--neon-green);">&#10003;</td></tr>
+                    <tr>
+                        <td style="color:var(--text);">Persistent team memory</td>
+                        <td style="text-align:center; color:#ff5555;">&#10007;</td>
+                        <td style="text-align:center; color:var(--neon-green);">&#10003;</td>
+                        <td style="text-align:center; color:var(--neon-green);">&#10003;</td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--text);">Knowledge capture enforced</td>
+                        <td style="text-align:center; color:#ff5555;">&#10007;</td>
+                        <td style="text-align:center; color:#ff5555;">&#10007;</td>
+                        <td style="text-align:center; color:var(--neon-green);">&#10003;</td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--text);">Git-native flat-file storage</td>
+                        <td style="text-align:center; color:#ff5555;">&#10007;</td>
+                        <td style="text-align:center; color:#ff5555;">&#10007;</td>
+                        <td style="text-align:center; color:var(--neon-green);">&#10003;</td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--text);">Knowledge quality gates</td>
+                        <td style="text-align:center; color:#ff5555;">&#10007;</td>
+                        <td style="text-align:center; color:#ff5555;">&#10007;</td>
+                        <td style="text-align:center; color:var(--neon-green);">&#10003;</td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--text);">Hybrid retrieval + reranking</td>
+                        <td style="text-align:center; color:var(--neon-yellow);">Partial</td>
+                        <td style="text-align:center; color:var(--neon-yellow);">Sometimes</td>
+                        <td style="text-align:center; color:var(--neon-green);">&#10003;</td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--text);">Fully self-hosted</td>
+                        <td style="text-align:center; color:var(--neon-yellow);">Rare</td>
+                        <td style="text-align:center; color:var(--neon-yellow);">Sometimes</td>
+                        <td style="text-align:center; color:var(--neon-green);">&#10003;</td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--text);">Zero lock-in (flat files in Git)</td>
+                        <td style="text-align:center; color:#ff5555;">&#10007;</td>
+                        <td style="text-align:center; color:var(--neon-yellow);">Rare</td>
+                        <td style="text-align:center; color:var(--neon-green);">&#10003;</td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--text);">AI workflow guardrails</td>
+                        <td style="text-align:center; color:#ff5555;">&#10007;</td>
+                        <td style="text-align:center; color:#ff5555;">&#10007;</td>
+                        <td style="text-align:center; color:var(--neon-green);">&#10003;</td>
+                    </tr>
+                    <tr>
+                        <td style="color:var(--text);">Telemetry &amp; impact metrics</td>
+                        <td style="text-align:center; color:#ff5555;">&#10007;</td>
+                        <td style="text-align:center; color:#ff5555;">&#10007;</td>
+                        <td style="text-align:center; color:var(--neon-green);">&#10003;</td>
+                    </tr>
                 </table>
             </div>
             <p style="text-align:center; margin-top:20px; font-size:13px; color:var(--text); font-style:italic;">
@@ -895,7 +977,7 @@
                 <ul>
                     <li>Non-commercial use</li>
                     <li>Teams up to 10 people</li>
-                    <li>All 27 MCP tools</li>
+                    <li>All 26 MCP tools</li>
                     <li>Unlimited docs &amp; searches</li>
                     <li>Self-hosted, fully private</li>
                     <li>Community support (GitHub)</li>
@@ -935,7 +1017,7 @@
         <div class="install-box">
             <p style="font-family:var(--pixel); font-size:11px; color:var(--neon-yellow);">RUN FROM YOUR PROJECT DIRECTORY:</p>
             <code onclick="navigator.clipboard.writeText(this.textContent.trim());this.style.borderColor='var(--neon-yellow)';setTimeout(()=>this.style.borderColor='var(--border)',1000);">curl -sSL https://raw.githubusercontent.com/dl4rce/flaiwheel/main/scripts/install.sh | bash</code>
-            <p class="note">Click to copy. Sets up everything: knowledge repo, Docker container, Cursor config, AI agent instructions, and post-commit git hook.</p>
+            <p class="note">Click to copy. Sets up everything: knowledge repo, Docker container, Cursor config, AI agent instructions.</p>
         </div>
     </section>
 
@@ -1000,8 +1082,8 @@
 
             <h3>PRIVACY</h3>
             <p>
-                This website does not use cookies, does not track visitors, and does not collect personal data.
-                No analytics, no third-party scripts beyond Google Fonts.
+                This website uses Google Analytics (gtag.js) for anonymized usage statistics.
+                Google Fonts is used for typography. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google&rsquo;s privacy policy</a> for details.
                 The Flaiwheel software runs entirely on your infrastructure &mdash; no data ever leaves your network.
             </p>
 
@@ -1069,6 +1151,30 @@
     }
     draw();
 })();
+
+// Consent Banner Logic
+function acceptConsent() {
+    localStorage.setItem('flaiwheel_ga_consent', 'accepted');
+    document.getElementById('consent-banner').classList.add('hidden');
+    // Load Google Analytics after consent
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=G-6YFJ7JQBRL';
+    document.head.appendChild(script);
+}
+
+function rejectConsent() {
+    localStorage.setItem('flaiwheel_ga_consent', 'rejected');
+    document.getElementById('consent-banner').classList.add('hidden');
+}
+
+// Show consent banner only if no prior decision
+document.addEventListener('DOMContentLoaded', function() {
+    var gaConsent = localStorage.getItem('flaiwheel_ga_consent');
+    if (gaConsent) {
+        document.getElementById('consent-banner').classList.add('hidden');
+    }
+});
 </script>
 
 </body>
