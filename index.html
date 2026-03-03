@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flaiwheel — Every Bug Fixed Makes the Next Bug Cheaper</title>
-    <meta name="description" content="Self-improving knowledge base for AI coding agents. Free, self-hosted, MCP-native. 27 tools, multi-repo support. For Cursor, Claude Code &amp; VS Code Copilot.">
-    <meta name="keywords" content="Flaiwheel, MCP, AI coding agent, knowledge base, semantic search, Cursor, Claude Code, VS Code Copilot, self-hosted, Docker, developer tools, bugfix documentation, vector search, ChromaDB">
+    <title>Flaiwheel — Memory &amp; Governance Layer for AI Coding Agents | Self-Hosted MCP</title>
+    <meta name="description" content="The persistent memory and governance layer for AI coding agents. Self-hosted Docker, Git-native, zero lock-in. Engineering knowledge compounds — stop repeating bugs across sessions.">
+    <meta name="keywords" content="Flaiwheel, MCP, AI coding agent, AI agent memory, memory governance, engineering knowledge base, persistent AI memory, knowledge governance platform, AI workflow guardrails, Git-native AI tools, knowledge compounding, self-hosted, Docker, Cursor, Claude Code, VS Code Copilot, semantic search, ChromaDB, bugfix documentation">
     <meta name="author" content="4rce.com Digital Technologies GmbH">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://flaiwheel.app/">
@@ -17,14 +17,14 @@
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://flaiwheel.app/">
-    <meta property="og:title" content="Flaiwheel — Self-Improving Knowledge Base for AI Coding Agents">
-    <meta property="og:description" content="Every bug fixed makes the next bug cheaper. Free, self-hosted, MCP-native. 27 tools, multi-repo support. For Cursor, Claude Code &amp; VS Code Copilot.">
+    <meta property="og:title" content="Flaiwheel — The Memory &amp; Governance Layer for AI Coding Agents">
+    <meta property="og:description" content="Persistent memory, quality gates, and Git-native automation for AI coding agents. Self-hosted, zero lock-in. Engineering knowledge compounds — agents stop repeating mistakes.">
     <meta property="og:image" content="https://flaiwheel.app/og-image.png">
     <meta property="og:site_name" content="Flaiwheel">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Flaiwheel — Self-Improving Knowledge Base for AI Coding Agents">
-    <meta name="twitter:description" content="Every bug fixed makes the next bug cheaper. Free, self-hosted, MCP-native. 27 tools, multi-repo support. For Cursor, Claude Code &amp; VS Code Copilot.">
+    <meta name="twitter:title" content="Flaiwheel — The Memory &amp; Governance Layer for AI Coding Agents">
+    <meta name="twitter:description" content="Persistent memory, quality gates, and Git-native automation for AI coding agents. Self-hosted, zero lock-in. Engineering knowledge compounds — agents stop repeating mistakes.">
     <meta name="twitter:image" content="https://flaiwheel.app/og-image.png">
 
     <script type="application/ld+json">
@@ -33,7 +33,7 @@
         "@type": "SoftwareApplication",
         "name": "Flaiwheel",
         "url": "https://flaiwheel.app",
-        "description": "Self-improving knowledge base for AI coding agents. Self-hosted, MCP-native, 27 structured tools, multi-repo support.",
+        "description": "The persistent memory and governance layer for AI coding agents. Self-hosted Docker container, Git-native flat-file storage, zero lock-in. 27 MCP tools enforce knowledge capture, quality gates ensure high-signal retrieval, and engineering knowledge compounds automatically across sessions.",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Linux, macOS, Windows (Docker)",
         "offers": [
@@ -60,7 +60,63 @@
         },
         "license": "https://github.com/dl4rce/flaiwheel/blob/main/LICENSE.md",
         "downloadUrl": "https://github.com/dl4rce/flaiwheel",
-        "softwareVersion": "3.0.0"
+        "softwareVersion": "3.4.1"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is Flaiwheel?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Flaiwheel is the persistent memory and governance layer for AI coding agents. It captures engineering knowledge — bugfixes, architecture decisions, test cases — and makes it retrievable across every future AI session so teams stop repeating the same mistakes."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How is Flaiwheel different from RAG tools?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "RAG tools retrieve documents. Flaiwheel governs engineering knowledge: it enforces structured capture via mandatory write tools, validates quality before indexing, and stores everything as flat files in your own Git repository with zero vendor lock-in."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is Flaiwheel self-hosted?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Flaiwheel runs in a single Docker container on your own infrastructure. No cloud dependencies, no external APIs required, no data leaves your network."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is Flaiwheel free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Flaiwheel is free for non-commercial use and teams of up to 10 people. Commercial and larger team use requires a paid license. It converts to Apache 2.0 on 2030-02-25."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What AI coding tools does Flaiwheel work with?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Flaiwheel is MCP-native and works with any MCP-compatible AI coding agent, including Cursor, Claude Code, and VS Code Copilot. It does not replace these tools — it makes them organisationally intelligent by providing persistent memory and governance."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What makes Flaiwheel's search different?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Flaiwheel uses a 5-stage hybrid search pipeline: semantic vector search, BM25 keyword matching, Reciprocal Rank Fusion, optional cross-encoder reranking, and relevance filtering. This delivers 10-25% higher precision than vector-only retrieval."
+                }
+            }
+        ]
     }
     </script>
 
@@ -383,29 +439,6 @@
         }
         .tools-table tr:hover { background: rgba(57, 255, 20, 0.03); }
 
-        .comparison-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 24px; margin-top: 32px;
-        }
-        .compare-card {
-            background: var(--dark-card); border: 1px solid var(--border);
-            padding: 24px; text-align: center;
-        }
-        .compare-card .name {
-            font-family: var(--pixel); font-size: 10px; margin-bottom: 12px;
-        }
-        .compare-card .price {
-            font-family: var(--pixel); font-size: 18px; margin-bottom: 8px;
-        }
-        .compare-card ul { list-style: none; font-size: 13px; text-align: left; }
-        .compare-card li { padding: 4px 0; }
-        .compare-card li::before { content: "  "; margin-right: 6px; }
-        .compare-card.highlight {
-            border-color: var(--neon-green);
-            box-shadow: 0 0 20px rgba(57, 255, 20, 0.15);
-        }
-        .compare-card.highlight .name { color: var(--neon-green); }
-        .compare-card.highlight .price { color: var(--neon-green); }
 
         .install-box {
             background: var(--dark-card); border: 1px solid var(--neon-green);
@@ -525,6 +558,7 @@
             <a href="#how">How it works</a>
             <a href="#search-pipeline">Search</a>
             <a href="#features">Features</a>
+            <a href="#why-different" style="color:var(--neon-yellow);">Why Different</a>
             <a href="#tools">Tools</a>
             <a href="#pricing">Pricing</a>
             <a href="#install">Install</a>
@@ -785,45 +819,70 @@
         </p>
     </section>
 
-    <section id="compare">
-        <h2>// VS THE COMPETITION</h2>
-        <div class="comparison-grid">
-            <div class="compare-card highlight">
-                <div class="name" style="color:var(--neon-green);">FLAIWHEEL</div>
-                <div class="price" style="color:var(--neon-green);">FREE</div>
-                <ul>
-                    <li>&#10003; Self-hosted (Docker)</li>
-                    <li>&#10003; MCP-native</li>
-                    <li>&#10003; Auto-learning flywheel</li>
-                    <li>&#10003; Quality enforcement</li>
-                    <li>&#10003; 27 structured tools</li>
-                    <li>&#10003; 100% private</li>
-                </ul>
+    <section id="why-different">
+        <h2>// WHY FLAIWHEEL IS DIFFERENT</h2>
+        <p style="text-align:center; max-width:640px; margin:0 auto 48px; font-size:16px; line-height:1.8;">
+            AI coding tools accelerate code generation. They don’t preserve engineering knowledge.
+            Flaiwheel is the <span style="color:var(--neon-cyan);">memory and governance layer</span> that closes that gap — so every session builds on the last.
+        </p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div style="font-family:var(--pixel);font-size:9px;color:var(--neon-yellow);margin-bottom:10px;text-shadow:0 0 6px rgba(255,230,0,0.4);">01</div>
+                <h3>PERSISTENT MEMORY THAT COMPOUNDS</h3>
+                <p>AI agents normally reset every session. Flaiwheel turns every bug fix, architecture decision, and test case into permanent structured knowledge — so your AI gets smarter over time instead of starting from zero.</p>
             </div>
-            <div class="compare-card">
-                <div class="name" style="color:var(--text);">CONTEXTSTREAM</div>
-                <div class="price" style="color:var(--text);">$10-20/mo</div>
-                <ul>
-                    <li>&#10003; Cloud SaaS</li>
-                    <li>&#10003; MCP support</li>
-                    <li>&#10007; Manual context storing</li>
-                    <li>&#10007; No quality enforcement</li>
-                    <li>&#10003; Knowledge graphs</li>
-                    <li>&#10007; Data on their servers</li>
-                </ul>
+            <div class="feature-card">
+                <div style="font-family:var(--pixel);font-size:9px;color:var(--neon-yellow);margin-bottom:10px;text-shadow:0 0 6px rgba(255,230,0,0.4);">02</div>
+                <h3>SELF-HOSTED — ZERO CLOUD, ZERO LOCK-IN</h3>
+                <p>Single Docker container. No external services, no API keys, no data leaves your network. All knowledge lives as flat files in your own Git repository — stop using Flaiwheel and you keep everything.</p>
             </div>
-            <div class="compare-card">
-                <div class="name" style="color:var(--text);">LIGHTFAST</div>
-                <div class="price" style="color:var(--text);">$12/user/mo</div>
-                <ul>
-                    <li>&#10003; Cloud SaaS</li>
-                    <li>&#10007; No MCP</li>
-                    <li>&#10007; No auto-learning</li>
-                    <li>&#10007; No quality enforcement</li>
-                    <li>&#10003; Cross-platform search</li>
-                    <li>&#10007; Data on their servers</li>
-                </ul>
+            <div class="feature-card">
+                <div style="font-family:var(--pixel);font-size:9px;color:var(--neon-yellow);margin-bottom:10px;text-shadow:0 0 6px rgba(255,230,0,0.4);">03</div>
+                <h3>HYBRID SEARCH + RERANKING</h3>
+                <p>Not just a vector DB. Semantic search, BM25 keyword matching, RRF fusion, optional cross-encoder reranking, and relevance filtering — delivering high-precision context to AI agents in serious codebases.</p>
             </div>
+            <div class="feature-card">
+                <div style="font-family:var(--pixel);font-size:9px;color:var(--neon-yellow);margin-bottom:10px;text-shadow:0 0 6px rgba(255,230,0,0.4);">04</div>
+                <h3>AUTOMATIC CAPTURE VIA GIT + MCP</h3>
+                <p>Every <code style="color:var(--neon-green);background:rgba(57,255,20,0.08);padding:1px 4px;font-size:11px;">fix:</code>, <code style="color:var(--neon-green);background:rgba(57,255,20,0.08);padding:1px 4px;font-size:11px;">feat:</code>, and <code style="color:var(--neon-green);background:rgba(57,255,20,0.08);padding:1px 4px;font-size:11px;">refactor:</code> workflow is captured in context. Agents search before coding and document after fixes. Zero manual prompting — knowledge compounds automatically.</p>
+            </div>
+            <div class="feature-card">
+                <div style="font-family:var(--pixel);font-size:9px;color:var(--neon-yellow);margin-bottom:10px;text-shadow:0 0 6px rgba(255,230,0,0.4);">05</div>
+                <h3>STRUCTURED KNOWLEDGE + QUALITY GATES</h3>
+                <p>Seven category-specific write tools enforce consistency across bugfixes, architecture, API docs, tests, and more. Pre-commit validation and ingest checks ensure high-quality memory — bad docs are skipped, never deleted.</p>
+            </div>
+            <div class="feature-card">
+                <div style="font-family:var(--pixel);font-size:9px;color:var(--neon-yellow);margin-bottom:10px;text-shadow:0 0 6px rgba(255,230,0,0.4);">06</div>
+                <h3>ENTERPRISE-READY BY DESIGN</h3>
+                <p>Multi-repo support, model hot-swap without downtime, telemetry and impact metrics, living architecture diagrams (Mermaid.js), and executable BDD flows. Built for serious codebases — not hobby projects.</p>
+            </div>
+        </div>
+
+        <div style="margin-top:60px;">
+            <p style="text-align:center; font-family:var(--pixel); font-size:10px; color:var(--neon-cyan); margin-bottom:28px; text-shadow:0 0 8px rgba(0,255,247,0.3);">// AT A GLANCE</p>
+            <div style="overflow-x:auto;">
+                <table class="tools-table" style="max-width:860px; margin:0 auto;">
+                    <tr>
+                        <th>CAPABILITY</th>
+                        <th style="text-align:center; color:var(--text);">AI CODING TOOLS</th>
+                        <th style="text-align:center; color:var(--text);">GENERIC RAG / MEMORY</th>
+                        <th style="text-align:center; color:var(--neon-green);">FLAIWHEEL</th>
+                    </tr>
+                    <tr><td style="color:var(--text);">Persistent team memory</td><td style="text-align:center; color:#ff5555;">&#10007;</td><td style="text-align:center; color:var(--neon-green);">&#10003;</td><td style="text-align:center; color:var(--neon-green);">&#10003;</td></tr>
+                    <tr><td style="color:var(--text);">Knowledge capture enforced</td><td style="text-align:center; color:#ff5555;">&#10007;</td><td style="text-align:center; color:#ff5555;">&#10007;</td><td style="text-align:center; color:var(--neon-green);">&#10003;</td></tr>
+                    <tr><td style="color:var(--text);">Git-native flat-file storage</td><td style="text-align:center; color:#ff5555;">&#10007;</td><td style="text-align:center; color:#ff5555;">&#10007;</td><td style="text-align:center; color:var(--neon-green);">&#10003;</td></tr>
+                    <tr><td style="color:var(--text);">Knowledge quality gates</td><td style="text-align:center; color:#ff5555;">&#10007;</td><td style="text-align:center; color:#ff5555;">&#10007;</td><td style="text-align:center; color:var(--neon-green);">&#10003;</td></tr>
+                    <tr><td style="color:var(--text);">Hybrid retrieval + reranking</td><td style="text-align:center; color:var(--neon-yellow);">Partial</td><td style="text-align:center; color:var(--neon-yellow);">Sometimes</td><td style="text-align:center; color:var(--neon-green);">&#10003;</td></tr>
+                    <tr><td style="color:var(--text);">Fully self-hosted</td><td style="text-align:center; color:var(--neon-yellow);">Rare</td><td style="text-align:center; color:var(--neon-yellow);">Sometimes</td><td style="text-align:center; color:var(--neon-green);">&#10003;</td></tr>
+                    <tr><td style="color:var(--text);">Zero lock-in (flat files in Git)</td><td style="text-align:center; color:#ff5555;">&#10007;</td><td style="text-align:center; color:var(--neon-yellow);">Rare</td><td style="text-align:center; color:var(--neon-green);">&#10003;</td></tr>
+                    <tr><td style="color:var(--text);">AI workflow guardrails</td><td style="text-align:center; color:#ff5555;">&#10007;</td><td style="text-align:center; color:#ff5555;">&#10007;</td><td style="text-align:center; color:var(--neon-green);">&#10003;</td></tr>
+                    <tr><td style="color:var(--text);">Telemetry &amp; impact metrics</td><td style="text-align:center; color:#ff5555;">&#10007;</td><td style="text-align:center; color:#ff5555;">&#10007;</td><td style="text-align:center; color:var(--neon-green);">&#10003;</td></tr>
+                </table>
+            </div>
+            <p style="text-align:center; margin-top:20px; font-size:13px; color:var(--text); font-style:italic;">
+                Flaiwheel does not replace your AI coding assistant. It makes it reliable at scale.
+            </p>
         </div>
     </section>
 
