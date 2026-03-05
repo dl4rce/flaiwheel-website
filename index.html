@@ -82,7 +82,7 @@
         },
         "license": "https://github.com/dl4rce/flaiwheel/blob/main/LICENSE.md",
         "downloadUrl": "https://github.com/dl4rce/flaiwheel",
-        "softwareVersion": "3.9.0"
+        "softwareVersion": "3.9.8"
     }
     </script>
     <script type="application/ld+json">
@@ -817,7 +817,7 @@
             <div class="feature-card">
                 <span class="feature-icon">🚀</span>
                 <h3>COLD-START ANALYZER</h3>
-                <p><code>analyze_codebase(path)</code> &mdash; scan a legacy source directory entirely server-side. Zero tokens. Zero cloud. Uses <code>ast</code> + regex + local MiniLM to extract structure, classify files, detect duplicates, and rank the top 20 files to document first. ~90% token reduction vs. agent-driven file reading.</p>
+                <p><code>analyze_codebase(path)</code> &mdash; scan a legacy source directory entirely server-side. Zero tokens. Zero cloud. Uses <code>ast</code> + regex + local MiniLM to extract structure, classify files, detect duplicates, and rank the top 20 files to document first. Report is cached in <code>/data/</code> for instant reads on every subsequent agent session. ~90% token reduction vs. agent-driven file reading.</p>
             </div>
         </div>
     </section>
@@ -855,7 +855,7 @@
             <tr style="background:rgba(255,230,0,0.03);"><td>classify_documents</td><td>"This is the Way" &mdash; classify project docs for knowledge migration</td></tr>
             <tr><td>save_session_summary</td><td>Save session context for next-session continuity</td></tr>
             <tr><td>get_recent_sessions</td><td>Retrieve recent session summaries (newest first)</td></tr>
-            <tr style="background:rgba(255,230,0,0.03);"><td>analyze_codebase</td><td>Cold-start scan of a source directory &mdash; zero tokens, zero cloud. Returns ranked documentation plan.</td></tr>
+            <tr style="background:rgba(255,230,0,0.03);"><td>analyze_codebase</td><td>Cold-start scan of a source directory &mdash; zero tokens, zero cloud. Cached in <code>/data/</code> for instant reads. Pass <code>force=True</code> to refresh. Returns ranked documentation plan.</td></tr>
             <tr><td>get_file_context</td><td>Pre-load spatial knowledge for a file the agent is about to edit</td></tr>
         </table>
         <p style="text-align:center; margin-top:16px; font-size:13px; color:var(--text);">
