@@ -55,7 +55,7 @@
         "@type": "SoftwareApplication",
         "name": "Flaiwheel",
         "url": "https://flaiwheel.app",
-        "description": "The persistent memory and governance layer for AI coding agents. Self-hosted Docker container, Git-native flat-file storage, zero lock-in. 26 MCP tools enforce knowledge capture, quality gates ensure high-signal retrieval, and engineering knowledge compounds automatically across sessions.",
+        "description": "The persistent memory and governance layer for AI coding agents. Self-hosted Docker container, Git-native flat-file storage, zero lock-in. 28 MCP tools enforce knowledge capture, quality gates ensure high-signal retrieval, and engineering knowledge compounds automatically across sessions.",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Linux, macOS, Windows (Docker)",
         "offers": [
@@ -82,7 +82,7 @@
         },
         "license": "https://github.com/dl4rce/flaiwheel/blob/main/LICENSE.md",
         "downloadUrl": "https://github.com/dl4rce/flaiwheel",
-        "softwareVersion": "3.4.1"
+        "softwareVersion": "3.9.0"
     }
     </script>
     <script type="application/ld+json">
@@ -649,7 +649,7 @@
                 <div class="label">Faster Development</div>
             </div>
             <div class="stat">
-                <div class="num">26</div>
+                <div class="num">28</div>
                 <div class="label">MCP Tools</div>
             </div>
             <div class="stat">
@@ -814,11 +814,16 @@
                 <h3>"THIS IS THE WAY"</h3>
                 <p>Knowledge Bootstrap &mdash; classify files by content + embeddings, detect near-duplicates, propose a cleanup plan. Never deletes files. User approves every action. Also triggered by saying <span style="color:var(--neon-yellow);">"42"</span>.</p>
             </div>
+            <div class="feature-card">
+                <span class="feature-icon">🚀</span>
+                <h3>COLD-START ANALYZER</h3>
+                <p><code>analyze_codebase(path)</code> &mdash; scan a legacy source directory entirely server-side. Zero tokens. Zero cloud. Uses <code>ast</code> + regex + local MiniLM to extract structure, classify files, detect duplicates, and rank the top 20 files to document first. ~90% token reduction vs. agent-driven file reading.</p>
+            </div>
         </div>
     </section>
 
     <section id="tools">
-        <h2>// 26 MCP TOOLS</h2>
+        <h2>// 28 MCP TOOLS</h2>
         <p style="text-align:center; margin-bottom:24px;">
             Works with Cursor, Claude Code, VS Code Copilot &mdash; any MCP-compatible AI agent.
         </p>
@@ -850,6 +855,8 @@
             <tr style="background:rgba(255,230,0,0.03);"><td>classify_documents</td><td>"This is the Way" &mdash; classify project docs for knowledge migration</td></tr>
             <tr><td>save_session_summary</td><td>Save session context for next-session continuity</td></tr>
             <tr><td>get_recent_sessions</td><td>Retrieve recent session summaries (newest first)</td></tr>
+            <tr style="background:rgba(255,230,0,0.03);"><td>analyze_codebase</td><td>Cold-start scan of a source directory &mdash; zero tokens, zero cloud. Returns ranked documentation plan.</td></tr>
+            <tr><td>get_file_context</td><td>Pre-load spatial knowledge for a file the agent is about to edit</td></tr>
         </table>
         <p style="text-align:center; margin-top:16px; font-size:13px; color:var(--text);">
             All tools accept an optional <code style="color:var(--neon-green); background:rgba(57,255,20,0.08); padding:2px 6px;">project</code> parameter for multi-repo targeting.
@@ -977,7 +984,7 @@
                 <ul>
                     <li>Non-commercial use</li>
                     <li>Teams up to 10 people</li>
-                    <li>All 26 MCP tools</li>
+                    <li>All 28 MCP tools</li>
                     <li>Unlimited docs &amp; searches</li>
                     <li>Self-hosted, fully private</li>
                     <li>Community support (GitHub)</li>
