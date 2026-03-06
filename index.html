@@ -9,6 +9,11 @@
     <meta name="author" content="4rce.com Digital Technologies GmbH">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://flaiwheel.app/">
+    <link rel="alternate" hreflang="en" href="https://flaiwheel.app/">
+
+    <!-- Preload critical external resource -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 
     <!-- Google Analytics (loaded only after consent) -->
     <script>
@@ -18,10 +23,10 @@
 
       // Initialize GA in consent mode (disabled until user accepts)
       function loadGoogleAnalytics() {
-        gtag('config', 'G-6YFJ7JQBRL');
         var script = document.createElement('script');
         script.async = true;
         script.src = 'https://www.googletagmanager.com/gtag/js?id=G-6YFJ7JQBRL';
+        script.onload = function() { gtag('config', 'G-6YFJ7JQBRL'); };
         document.head.appendChild(script);
       }
 
@@ -45,9 +50,11 @@
     <meta property="og:site_name" content="Flaiwheel">
 
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@4rce_com">
     <meta name="twitter:title" content="Flaiwheel — The Memory &amp; Governance Layer for AI Coding Agents">
     <meta name="twitter:description" content="Persistent memory, quality gates, and Git-native automation for AI coding agents. Self-hosted, zero lock-in. Engineering knowledge compounds — agents stop repeating mistakes.">
     <meta name="twitter:image" content="https://flaiwheel.app/og-image.png">
+    <meta name="twitter:image:alt" content="Flaiwheel — AI Agent Memory &amp; Governance Layer">
 
     <script type="application/ld+json">
     {
@@ -138,6 +145,60 @@
                     "text": "Flaiwheel uses a 5-stage hybrid search pipeline: semantic vector search, BM25 keyword matching, Reciprocal Rank Fusion, optional cross-encoder reranking, and relevance filtering. This delivers 10-25% higher precision than vector-only retrieval."
                 }
             }
+        ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "How it Works", "item": "https://flaiwheel.app/#how"},
+            {"@type": "ListItem", "position": 2, "name": "Search Pipeline", "item": "https://flaiwheel.app/#search-pipeline"},
+            {"@type": "ListItem", "position": 3, "name": "Features", "item": "https://flaiwheel.app/#features"},
+            {"@type": "ListItem", "position": 4, "name": "Why Different", "item": "https://flaiwheel.app/#why-different"},
+            {"@type": "ListItem", "position": 5, "name": "MCP Tools", "item": "https://flaiwheel.app/#tools"},
+            {"@type": "ListItem", "position": 6, "name": "Pricing", "item": "https://flaiwheel.app/#pricing"},
+            {"@type": "ListItem", "position": 7, "name": "Install", "item": "https://flaiwheel.app/#install"}
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Flaiwheel",
+        "url": "https://flaiwheel.app",
+        "description": "The persistent memory and governance layer for AI coding agents.",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://github.com/dl4rce/flaiwheel/search?q={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "4rce.com Digital Technologies GmbH",
+        "url": "https://4rce.com",
+        "logo": "https://flaiwheel.app/og-image.png",
+        "email": "info@4rce.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Grafentraubach 9",
+            "addressLocality": "Laberweinting",
+            "postalCode": "84082",
+            "addressCountry": "DE"
+        },
+        "sameAs": [
+            "https://github.com/dl4rce/flaiwheel",
+            "https://flaiwheel.app"
         ]
     }
     </script>
