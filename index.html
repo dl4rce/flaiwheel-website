@@ -10,6 +10,7 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://flaiwheel.app/">
     <link rel="alternate" hreflang="en" href="https://flaiwheel.app/">
+    <link rel="alternate" hreflang="x-default" href="https://flaiwheel.app/">
 
     <!-- Preload critical external resource -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -44,6 +45,7 @@
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://flaiwheel.app/">
+    <meta property="og:locale" content="en_US">
     <meta property="og:title" content="Flaiwheel — The Memory &amp; Governance Layer for AI Coding Agents">
     <meta property="og:description" content="Persistent memory, quality gates, and Git-native automation for AI coding agents. Self-hosted, zero lock-in. Engineering knowledge compounds — agents stop repeating mistakes.">
     <meta property="og:image" content="https://flaiwheel.app/og-image.png">
@@ -89,7 +91,8 @@
         },
         "license": "https://github.com/dl4rce/flaiwheel/blob/main/LICENSE.md",
         "downloadUrl": "https://github.com/dl4rce/flaiwheel",
-        "softwareVersion": "3.9.8"
+        "softwareVersion": "3.9.26",
+        "dateModified": "2026-03-18"
     }
     </script>
     <script type="application/ld+json">
@@ -1092,7 +1095,7 @@
         </table>
         <div class="install-box">
             <p style="font-family:var(--pixel); font-size:11px; color:var(--neon-yellow);">RUN FROM YOUR PROJECT DIRECTORY:</p>
-            <code onclick="navigator.clipboard.writeText(this.textContent.trim());this.style.borderColor='var(--neon-yellow)';setTimeout(()=>this.style.borderColor='var(--border)',1000);">curl -sSL https://raw.githubusercontent.com/dl4rce/flaiwheel/main/scripts/install.sh | bash</code>
+            <code onclick="navigator.clipboard.writeText(this.textContent.trim());this.style.borderColor='var(--neon-yellow)';setTimeout(()=>this.style.borderColor='var(--border)',1000);">bash &lt;(curl -sSL https://raw.githubusercontent.com/dl4rce/flaiwheel/main/scripts/install.sh)</code>
             <p class="note">Click to copy. Sets up everything: knowledge repo, Docker container, Cursor config, AI agent instructions.</p>
         </div>
     </section>
