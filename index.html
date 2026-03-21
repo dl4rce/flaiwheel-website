@@ -73,7 +73,7 @@
                 "name": "Community",
                 "price": "0",
                 "priceCurrency": "USD",
-                "description": "Free for non-commercial use and teams up to 10"
+                "description": "Free forever — non-commercial use and teams up to 10"
             },
             {
                 "@type": "Offer",
@@ -85,10 +85,10 @@
             },
             {
                 "@type": "Offer",
-                "name": "Commercial",
+                "name": "Enterprise",
                 "price": "0",
                 "priceCurrency": "USD",
-                "description": "Contact for commercial licensing (teams 11+, production)",
+                "description": "Contact for enterprise licensing (teams 11+, production). Solo and Team plans planned for 2027.",
                 "url": "mailto:info@4rce.com"
             }
         ],
@@ -100,7 +100,7 @@
         "license": "https://github.com/dl4rce/flaiwheel/blob/main/LICENSE.md",
         "downloadUrl": "https://github.com/dl4rce/flaiwheel",
         "softwareVersion": "3.9.26",
-        "dateModified": "2026-03-18"
+        "dateModified": "2026-03-21"
     }
     </script>
     <script type="application/ld+json">
@@ -566,6 +566,14 @@
         .price-card.highlight { border-color: var(--neon-green); }
         .price-card.beta { border-color: var(--neon-magenta); }
         .price-card.beta .amount { color: var(--neon-magenta); text-shadow: 0 0 10px var(--neon-magenta); }
+        .price-card.enterprise { border-color: var(--neon-orange); }
+        .price-card.enterprise .amount { color: var(--neon-orange); text-shadow: 0 0 10px var(--neon-orange); }
+        .tier-sub { font-size: 12px; color: var(--text); margin: -8px 0 12px; line-height: 1.4; }
+        .pricing-footnote {
+            text-align: center; margin-top: 28px; max-width: 520px; margin-left: auto; margin-right: auto;
+            font-size: 13px; color: var(--neon-yellow); line-height: 1.6;
+            font-style: italic; text-shadow: 0 0 8px rgba(255, 230, 0, 0.15);
+        }
         .beta-form { max-width: 400px; margin: 24px auto 0; text-align: left; }
         .beta-form input[type="email"] {
             width: 100%; padding: 14px 16px; font-size: 14px;
@@ -1079,6 +1087,7 @@
             <div class="price-card highlight">
                 <h3>COMMUNITY</h3>
                 <div class="amount">FREE</div>
+                <p class="tier-sub">Forever</p>
                 <ul>
                     <li>Non-commercial use</li>
                     <li>Teams up to 10 people</li>
@@ -1091,13 +1100,13 @@
             <div class="price-card beta" id="beta">
                 <h3>BETA</h3>
                 <div class="amount">FREE</div>
-                <p style="font-size:12px; color:var(--text); margin:-8px 0 12px;">Commercial use through end of 2026</p>
+                <p class="tier-sub">Through 2026 &mdash; join with email</p>
                 <ul>
                     <li>Commercial use without team limit</li>
-                    <li>Time-boxed license (through 2026-12-31)</li>
+                    <li>License through 2026-12-31 (see <a href="https://github.com/dl4rce/flaiwheel/blob/main/LICENSE.md" target="_blank" rel="noopener" style="color:var(--neon-cyan);">BSL</a>)</li>
                     <li>All 28 MCP tools</li>
-                    <li>Same as Community + commercial rights</li>
-                    <li>No signup fee &mdash; just your email</li>
+                    <li>Commercial rights for the beta period</li>
+                    <li>No payment &mdash; email only</li>
                 </ul>
                 <form class="beta-form" id="beta-form" action="https://formspree.io/f/mojkzdod" method="POST">
                     <input type="email" name="email" placeholder="your@company.com" required>
@@ -1109,20 +1118,24 @@
                     <p class="success">Thanks! Check your inbox for your Beta license confirmation.</p>
                 </form>
             </div>
-            <div class="price-card">
-                <h3>COMMERCIAL</h3>
-                <div class="amount">CONTACT US</div>
+            <div class="price-card enterprise">
+                <h3>ENTERPRISE</h3>
+                <div class="amount">CONTACT</div>
+                <p class="tier-sub">Production, teams 11+, custom terms</p>
                 <ul>
                     <li>Teams of 11+</li>
-                    <li>Commercial / enterprise use</li>
+                    <li>Enterprise &amp; long-term commercial</li>
                     <li>Priority support</li>
-                    <li>Custom licensing terms</li>
-                    <li>Multi-project roadmap access</li>
+                    <li>Custom licensing &amp; invoicing</li>
+                    <li>Multi-project roadmap input</li>
                     <li>Invoice &amp; PO available</li>
                 </ul>
-                <a href="mailto:info@4rce.com" class="btn" style="width:100%; text-align:center; margin-top:8px;">CONTACT</a>
+                <a href="mailto:info@4rce.com" class="btn" style="width:100%; text-align:center; margin-top:8px; border-color:var(--neon-orange); color:var(--neon-orange);">CONTACT</a>
             </div>
         </div>
+        <p class="pricing-footnote">
+            Solo and Team plans launching 2027. Join the beta to lock in early pricing.
+        </p>
         <p style="text-align:center; margin-top:24px; font-size:13px; color:var(--text);">
             Licensed under <a href="https://mariadb.com/bsl11/" target="_blank" style="color:var(--neon-cyan);">Business Source License 1.1</a>.
             Converts to Apache 2.0 on 2030-02-25.
