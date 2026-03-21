@@ -100,7 +100,7 @@
         "license": "https://github.com/dl4rce/flaiwheel/blob/main/LICENSE.md",
         "downloadUrl": "https://github.com/dl4rce/flaiwheel",
         "softwareVersion": "3.9.26",
-        "dateModified": "2026-03-23"
+        "dateModified": "2026-03-24"
     }
     </script>
     <script type="application/ld+json">
@@ -567,6 +567,23 @@
         /* Pin CTAs to bottom of each card (equal row height in grid) */
         .price-card > ul + a,
         .price-card > ul + form { margin-top: auto; padding-top: 24px; width: 100%; box-sizing: border-box; }
+        /* Same CTA height: native <button> vs <a> differ in padding/box model */
+        .price-card a.btn,
+        .price-card button.btn {
+            box-sizing: border-box;
+            min-height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.2;
+        }
+        .price-card button.btn {
+            -webkit-appearance: none;
+            appearance: none;
+            font-family: var(--pixel);
+            font-size: 11px;
+            margin: 0;
+        }
         .price-card li { padding: 6px 0; border-bottom: 1px solid var(--border); }
         .price-card.highlight { border-color: var(--neon-green); }
         .price-card.beta { border-color: var(--neon-magenta); }
@@ -1124,7 +1141,7 @@
                     <input type="hidden" name="_subject" value="Flaiwheel Beta sign-up">
                     <input type="hidden" name="_next" value="https://flaiwheel.app/#beta-success">
                     <div class="submit-row">
-                        <button type="submit" class="btn" style="width:100%; margin-top:12px; border-color:var(--neon-magenta); color:var(--neon-magenta);">JOIN THE BETA</button>
+                        <button type="submit" class="btn" style="width:100%; border-color:var(--neon-magenta); color:var(--neon-magenta);">JOIN THE BETA</button>
                     </div>
                     <p class="beta-form-success" id="beta-form-success" hidden>Thanks! Check your inbox for your Beta license confirmation.</p>
                 </form>
