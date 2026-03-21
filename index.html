@@ -523,6 +523,13 @@
         .tools-table td:first-child {
             font-family: monospace; color: var(--neon-green); white-space: nowrap;
         }
+        /* Comparison matrix: allow wrap so one long row doesn't force horizontal scroll */
+        .tools-table.at-a-glance td:first-child {
+            white-space: normal;
+            max-width: 16rem;
+            line-height: 1.35;
+            vertical-align: top;
+        }
         .tools-table tr:hover { background: rgba(57, 255, 20, 0.03); }
 
         .install-box {
@@ -972,7 +979,7 @@
         <div style="margin-top:60px;">
             <p style="text-align:center; font-family:var(--pixel); font-size:10px; color:var(--neon-cyan); margin-bottom:28px; text-shadow:0 0 8px rgba(0,255,247,0.3);">// AT A GLANCE</p>
             <div style="overflow-x:auto;">
-                <table class="tools-table" style="max-width:860px; margin:0 auto;">
+                <table class="tools-table at-a-glance" style="max-width:860px; margin:0 auto; table-layout:fixed; width:100%;">
                     <tr>
                         <th>CAPABILITY</th>
                         <th style="text-align:center; color:var(--text);">AI CODING TOOLS</th>
@@ -1034,7 +1041,7 @@
                         <td style="text-align:center; color:var(--neon-green);">&#10003;</td>
                     </tr>
                     <tr>
-                        <td style="color:var(--text);">Local cold-start codebase analysis <span style="font-size:10px; color:var(--text); opacity:0.6;">— no LLM tokens for parsing, embedding, or classification</span></td>
+                        <td style="color:var(--text);">Cold-start codebase scan<br><span style="font-size:10px; color:var(--text); opacity:0.65;">No LLM tokens (AST · regex · embed)</span></td>
                         <td style="text-align:center; color:#ff5555;">&#10007;</td>
                         <td style="text-align:center; color:#ff5555;">&#10007;</td>
                         <td style="text-align:center; color:var(--neon-green);">&#10003;</td>
