@@ -1126,6 +1126,28 @@
                 <a href="https://aicollab.app/book" target="_blank">Book a Call</a>
             </div>
         </div>
+        <div class="project-card" style="margin-top: 24px;">
+            <div class="project-header">
+                <span class="project-name">ARCADE ERRORS</span>
+                <a href="https://arcadeerrors.com" target="_blank" rel="noopener" class="btn" style="padding:10px 20px; font-size:10px;">VISIT</a>
+            </div>
+            <p class="project-tagline">HTTP error pages that don&rsquo;t suck.</p>
+            <p>
+                35 fully playable arcade games &mdash; one per HTTP error code. 404, 500, 502, 503 and everything in between.
+                Drop-in HTML files. Zero dependencies. No build step, no npm, no framework.
+            </p>
+            <div class="project-highlights">
+                <span>&#127918; Pac-Man, Space Invaders, Asteroids &ndash; classic arcade style</span>
+                <span>&#128176; Free 502 demo &middot; Starter Pack &euro;15 &middot; Full Bundle &euro;59</span>
+                <span>&#128736; nginx, Apache, Caddy &mdash; one line and you&rsquo;re done</span>
+            </div>
+            <div class="project-links">
+                <a href="https://arcadeerrors.com/#games" target="_blank" rel="noopener">Games</a>
+                <a href="https://arcadeerrors.com/#pricing" target="_blank" rel="noopener">Pricing</a>
+                <a href="https://arcadeerrors.com/#how-it-works" target="_blank" rel="noopener">How it works</a>
+                <a href="https://arcadeerrors.com/" target="_blank" rel="noopener">Play Free 502</a>
+            </div>
+        </div>
     </section>
 
     <section id="legal">
@@ -1263,7 +1285,8 @@ document.addEventListener('DOMContentLoaded', function() {
         'install': ['a[href="#install"]', '.btn:contains("INSERT COIN")'],
         'github': ['a[href*="github.com/dl4rce/flaiwheel"]'],
         'contact': ['a[href="mailto:info@4rce.com"]', 'a[href*="mailto:info"]'],
-        'pricing': ['a[href="#pricing"]', 'a[href="https://aicollab.app"]']
+        'pricing': ['a[href="#pricing"]', 'a[href="https://aicollab.app"]'],
+        'arcadeerrors': ['a[href*="arcadeerrors.com"]']
     };
 
     Object.keys(ctaSelectors).forEach(function(ctaName) {
