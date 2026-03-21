@@ -80,7 +80,7 @@
                 "name": "Beta",
                 "price": "0",
                 "priceCurrency": "USD",
-                "description": "Commercial use through 2026-12-31. Sign up at flaiwheel.app/#beta",
+                "description": "Commercial use through December 31, 2026. Sign up at flaiwheel.app/#beta",
                 "url": "https://flaiwheel.app/#beta"
             },
             {
@@ -100,7 +100,7 @@
         "license": "https://github.com/dl4rce/flaiwheel/blob/main/LICENSE.md",
         "downloadUrl": "https://github.com/dl4rce/flaiwheel",
         "softwareVersion": "3.9.26",
-        "dateModified": "2026-03-21"
+        "dateModified": "2026-03-22"
     }
     </script>
     <script type="application/ld+json">
@@ -137,7 +137,7 @@
                 "name": "Is Flaiwheel free?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Flaiwheel is free for non-commercial use and teams of up to 10 people. Commercial and larger team use requires a paid license. It converts to Apache 2.0 on 2030-02-25."
+                    "text": "Flaiwheel is free for non-commercial use and teams of up to 10 people. Commercial and larger team use requires a paid license. It converts to Apache 2.0 on February 25, 2030."
                 }
             },
             {
@@ -566,8 +566,9 @@
         .price-card.highlight { border-color: var(--neon-green); }
         .price-card.beta { border-color: var(--neon-magenta); }
         .price-card.beta .amount { color: var(--neon-magenta); text-shadow: 0 0 10px var(--neon-magenta); }
-        .price-card.enterprise { border-color: var(--neon-orange); }
-        .price-card.enterprise .amount { color: var(--neon-orange); text-shadow: 0 0 10px var(--neon-orange); }
+        /* Enterprise: cyan accent — same family as links/secondary CTAs site-wide */
+        .price-card.enterprise { border-color: var(--neon-cyan); }
+        .price-card.enterprise .amount { color: var(--neon-cyan); text-shadow: 0 0 10px var(--neon-cyan); }
         .tier-sub { font-size: 12px; color: var(--text); margin: -8px 0 12px; line-height: 1.4; }
         .pricing-footnote {
             text-align: center; margin-top: 28px; max-width: 520px; margin-left: auto; margin-right: auto;
@@ -586,8 +587,13 @@
             box-shadow: 0 0 12px rgba(255, 0, 255, 0.2);
         }
         .beta-form .submit-row { margin-top: 12px; }
-        .beta-form .success { color: var(--neon-green); font-size: 14px; margin-top: 12px; display: none; }
-        .beta-form.submitted .success { display: block; }
+        .beta-form .beta-form-success {
+            display: none !important;
+            color: var(--neon-green); font-size: 14px; margin-top: 12px;
+        }
+        .beta-form.submitted .submit-row,
+        .beta-form.submitted input[type="email"] { display: none !important; }
+        .beta-form.submitted .beta-form-success { display: block !important; }
         .beta-form.submitted .submit-row { display: none; }
 
         .legal {
@@ -1096,14 +1102,15 @@
                     <li>Self-hosted, fully private</li>
                     <li>Community support (GitHub)</li>
                 </ul>
+                <a href="#install" class="btn" style="width:100%; text-align:center; margin-top:8px;">INSTALL FREE</a>
             </div>
             <div class="price-card beta" id="beta">
                 <h3>BETA</h3>
                 <div class="amount">FREE</div>
-                <p class="tier-sub">Through 2026 &mdash; join with email</p>
+                <p class="tier-sub">Free through December 31, 2026 &mdash; join with email</p>
                 <ul>
                     <li>Commercial use without team limit</li>
-                    <li>License through 2026-12-31 (see <a href="https://github.com/dl4rce/flaiwheel/blob/main/LICENSE.md" target="_blank" rel="noopener" style="color:var(--neon-cyan);">BSL</a>)</li>
+                    <li>License through December 31, 2026 (see <a href="https://github.com/dl4rce/flaiwheel/blob/main/LICENSE.md" target="_blank" rel="noopener" style="color:var(--neon-cyan);">BSL</a>)</li>
                     <li>All 28 MCP tools</li>
                     <li>Commercial rights for the beta period</li>
                     <li>No payment &mdash; email only</li>
@@ -1115,7 +1122,7 @@
                     <div class="submit-row">
                         <button type="submit" class="btn" style="width:100%; margin-top:12px; border-color:var(--neon-magenta); color:var(--neon-magenta);">JOIN THE BETA</button>
                     </div>
-                    <p class="success">Thanks! Check your inbox for your Beta license confirmation.</p>
+                    <p class="beta-form-success" id="beta-form-success" hidden>Thanks! Check your inbox for your Beta license confirmation.</p>
                 </form>
             </div>
             <div class="price-card enterprise">
@@ -1130,7 +1137,7 @@
                     <li>Multi-project roadmap input</li>
                     <li>Invoice &amp; PO available</li>
                 </ul>
-                <a href="mailto:info@4rce.com" class="btn" style="width:100%; text-align:center; margin-top:8px; border-color:var(--neon-orange); color:var(--neon-orange);">CONTACT</a>
+                <a href="mailto:info@4rce.com" class="btn btn-secondary" style="width:100%; text-align:center; margin-top:8px;">CONTACT</a>
             </div>
         </div>
         <p class="pricing-footnote">
@@ -1138,7 +1145,7 @@
         </p>
         <p style="text-align:center; margin-top:24px; font-size:13px; color:var(--text);">
             Licensed under <a href="https://mariadb.com/bsl11/" target="_blank" style="color:var(--neon-cyan);">Business Source License 1.1</a>.
-            Converts to Apache 2.0 on 2030-02-25.
+            Converts to Apache 2.0 on February 25, 2030.
         </p>
     </section>
 
@@ -1337,11 +1344,16 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('consent-banner').classList.add('hidden');
     }
 
-    // Beta form: AJAX submit + show success (or show success if returned from redirect)
+    // Beta form: AJAX submit + show success (or restore success state from #beta-success)
+    function showBetaSuccess(form) {
+        form.classList.add('submitted');
+        var msg = form.querySelector('.beta-form-success');
+        if (msg) msg.removeAttribute('hidden');
+    }
     var betaForm = document.getElementById('beta-form');
     if (betaForm) {
         if (window.location.hash === '#beta-success') {
-            betaForm.classList.add('submitted');
+            showBetaSuccess(betaForm);
         } else {
             betaForm.addEventListener('submit', function(e) {
                 e.preventDefault();
@@ -1352,10 +1364,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 btn.textContent = '...';
                 fetch(form.action, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } })
                     .then(function(r) {
-                        if (r.ok) { form.classList.add('submitted'); window.history.replaceState(null, '', '#beta-success'); }
-                        else { btn.disabled = false; btn.textContent = 'JOIN THE BETA'; alert('Something went wrong. Please try again or email info@4rce.com'); }
+                        if (r.ok) {
+                            showBetaSuccess(form);
+                            window.history.replaceState(null, '', '#beta-success');
+                        } else {
+                            btn.disabled = false;
+                            btn.textContent = 'JOIN THE BETA';
+                            alert('Something went wrong. Please try again or email info@4rce.com');
+                        }
                     })
-                    .catch(function() { btn.disabled = false; btn.textContent = 'JOIN THE BETA'; alert('Something went wrong. Please try again or email info@4rce.com'); });
+                    .catch(function() {
+                        btn.disabled = false;
+                        btn.textContent = 'JOIN THE BETA';
+                        alert('Something went wrong. Please try again or email info@4rce.com');
+                    });
             });
         }
     }
