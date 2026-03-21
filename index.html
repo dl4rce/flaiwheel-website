@@ -77,10 +77,18 @@
             },
             {
                 "@type": "Offer",
+                "name": "Beta",
+                "price": "0",
+                "priceCurrency": "USD",
+                "description": "Commercial use through 2026-12-31. Sign up at flaiwheel.app/#beta",
+                "url": "https://flaiwheel.app/#beta"
+            },
+            {
+                "@type": "Offer",
                 "name": "Commercial",
                 "price": "0",
                 "priceCurrency": "USD",
-                "description": "Contact for commercial licensing",
+                "description": "Contact for commercial licensing (teams 11+, production)",
                 "url": "mailto:info@4rce.com"
             }
         ],
@@ -523,13 +531,6 @@
         .tools-table td:first-child {
             font-family: monospace; color: var(--neon-green); white-space: nowrap;
         }
-        /* Comparison matrix: allow wrap so one long row doesn't force horizontal scroll */
-        .tools-table.at-a-glance td:first-child {
-            white-space: normal;
-            max-width: 16rem;
-            line-height: 1.35;
-            vertical-align: top;
-        }
         .tools-table tr:hover { background: rgba(57, 255, 20, 0.03); }
 
         .install-box {
@@ -563,6 +564,23 @@
         .price-card ul { list-style: none; font-size: 14px; text-align: left; margin-bottom: 24px; }
         .price-card li { padding: 6px 0; border-bottom: 1px solid var(--border); }
         .price-card.highlight { border-color: var(--neon-green); }
+        .price-card.beta { border-color: var(--neon-magenta); }
+        .price-card.beta .amount { color: var(--neon-magenta); text-shadow: 0 0 10px var(--neon-magenta); }
+        .beta-form { max-width: 400px; margin: 24px auto 0; text-align: left; }
+        .beta-form input[type="email"] {
+            width: 100%; padding: 14px 16px; font-size: 14px;
+            background: var(--dark); border: 1px solid var(--border);
+            color: var(--text); border-radius: 4px;
+            font-family: inherit; box-sizing: border-box;
+        }
+        .beta-form input[type="email"]:focus {
+            outline: none; border-color: var(--neon-magenta);
+            box-shadow: 0 0 12px rgba(255, 0, 255, 0.2);
+        }
+        .beta-form .submit-row { margin-top: 12px; }
+        .beta-form .success { color: var(--neon-green); font-size: 14px; margin-top: 12px; display: none; }
+        .beta-form.submitted .success { display: block; }
+        .beta-form.submitted .submit-row { display: none; }
 
         .legal {
             font-size: 13px; color: var(--text); line-height: 1.8;
@@ -701,6 +719,7 @@
             <a href="#why-different" style="color:var(--neon-yellow);">Why Different</a>
             <a href="#tools">Tools</a>
             <a href="#pricing">Pricing</a>
+            <a href="#beta">Beta</a>
             <a href="#install">Install</a>
             <a href="#projects">Projects</a>
             <a href="flaiwheel_whitepaper_volker_geith_v1.3.pdf" target="_blank" rel="noopener">Whitepaper</a>
@@ -979,7 +998,7 @@
         <div style="margin-top:60px;">
             <p style="text-align:center; font-family:var(--pixel); font-size:10px; color:var(--neon-cyan); margin-bottom:28px; text-shadow:0 0 8px rgba(0,255,247,0.3);">// AT A GLANCE</p>
             <div style="overflow-x:auto;">
-                <table class="tools-table at-a-glance" style="max-width:860px; margin:0 auto; table-layout:fixed; width:100%;">
+                <table class="tools-table" style="max-width:860px; margin:0 auto;">
                     <tr>
                         <th>CAPABILITY</th>
                         <th style="text-align:center; color:var(--text);">AI CODING TOOLS</th>
@@ -1041,7 +1060,7 @@
                         <td style="text-align:center; color:var(--neon-green);">&#10003;</td>
                     </tr>
                     <tr>
-                        <td style="color:var(--text);">Cold-start codebase scan<br><span style="font-size:10px; color:var(--text); opacity:0.65;">No LLM tokens (AST · regex · embed)</span></td>
+                        <td style="color:var(--text);">Local cold-start codebase analysis <span style="font-size:10px; color:var(--text); opacity:0.6;">— no LLM tokens for parsing, embedding, or classification</span></td>
                         <td style="text-align:center; color:#ff5555;">&#10007;</td>
                         <td style="text-align:center; color:#ff5555;">&#10007;</td>
                         <td style="text-align:center; color:var(--neon-green);">&#10003;</td>
@@ -1068,6 +1087,27 @@
                     <li>Self-hosted, fully private</li>
                     <li>Community support (GitHub)</li>
                 </ul>
+            </div>
+            <div class="price-card beta" id="beta">
+                <h3>BETA</h3>
+                <div class="amount">FREE</div>
+                <p style="font-size:12px; color:var(--text); margin:-8px 0 12px;">Commercial use through end of 2026</p>
+                <ul>
+                    <li>Commercial use without team limit</li>
+                    <li>Time-boxed license (through 2026-12-31)</li>
+                    <li>All 28 MCP tools</li>
+                    <li>Same as Community + commercial rights</li>
+                    <li>No signup fee &mdash; just your email</li>
+                </ul>
+                <form class="beta-form" id="beta-form" action="https://formspree.io/f/mojkzdod" method="POST">
+                    <input type="email" name="email" placeholder="your@company.com" required>
+                    <input type="hidden" name="_subject" value="Flaiwheel Beta sign-up">
+                    <input type="hidden" name="_next" value="https://flaiwheel.app/#beta-success">
+                    <div class="submit-row">
+                        <button type="submit" class="btn" style="width:100%; margin-top:12px; border-color:var(--neon-magenta); color:var(--neon-magenta);">JOIN THE BETA</button>
+                    </div>
+                    <p class="success">Thanks! Check your inbox for your Beta license confirmation.</p>
+                </form>
             </div>
             <div class="price-card">
                 <h3>COMMERCIAL</h3>
@@ -1152,7 +1192,7 @@
                 <a href="https://arcadeerrors.com/#games" target="_blank" rel="noopener">Games</a>
                 <a href="https://arcadeerrors.com/#pricing" target="_blank" rel="noopener">Pricing</a>
                 <a href="https://arcadeerrors.com/#how-it-works" target="_blank" rel="noopener">How it works</a>
-                <a href="https://arcadeerrors.com/demo/502-gateway-invaders.html" target="_blank" rel="noopener">Play Free 502</a>
+                <a href="https://arcadeerrors.com/" target="_blank" rel="noopener">Play Free 502</a>
             </div>
         </div>
     </section>
@@ -1283,6 +1323,29 @@ document.addEventListener('DOMContentLoaded', function() {
     if (gaConsent) {
         document.getElementById('consent-banner').classList.add('hidden');
     }
+
+    // Beta form: AJAX submit + show success (or show success if returned from redirect)
+    var betaForm = document.getElementById('beta-form');
+    if (betaForm) {
+        if (window.location.hash === '#beta-success') {
+            betaForm.classList.add('submitted');
+        } else {
+            betaForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var form = e.target;
+                var btn = form.querySelector('button[type="submit"]');
+                var fd = new FormData(form);
+                btn.disabled = true;
+                btn.textContent = '...';
+                fetch(form.action, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } })
+                    .then(function(r) {
+                        if (r.ok) { form.classList.add('submitted'); window.history.replaceState(null, '', '#beta-success'); }
+                        else { btn.disabled = false; btn.textContent = 'JOIN THE BETA'; alert('Something went wrong. Please try again or email info@4rce.com'); }
+                    })
+                    .catch(function() { btn.disabled = false; btn.textContent = 'JOIN THE BETA'; alert('Something went wrong. Please try again or email info@4rce.com'); });
+            });
+        }
+    }
 });
 
 // GA4 Event Tracking
@@ -1293,6 +1356,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'github': ['a[href*="github.com/dl4rce/flaiwheel"]'],
         'contact': ['a[href="mailto:info@4rce.com"]', 'a[href*="mailto:info"]'],
         'pricing': ['a[href="#pricing"]', 'a[href="https://aicollab.app"]'],
+        'beta': ['a[href="#beta"]', 'button[type="submit"]'],
         'arcadeerrors': ['a[href*="arcadeerrors.com"]']
     };
 
@@ -1319,6 +1383,11 @@ document.addEventListener('DOMContentLoaded', function() {
             if (href.includes('#pricing') || text.includes('pricing')) {
                 el.addEventListener('click', function() {
                     gtag('event', 'cta_click', { cta_name: 'pricing' });
+                });
+            }
+            if (href.includes('#beta') || (el.tagName === 'BUTTON' && el.closest('#beta-form'))) {
+                el.addEventListener('click', function() {
+                    gtag('event', 'cta_click', { cta_name: 'beta' });
                 });
             }
         });
