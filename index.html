@@ -316,6 +316,19 @@
         .hero .stat .label { font-size: 13px; color: var(--text); margin-top: 8px; }
 
         .cta-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+        .glama-badges {
+            display: flex; align-items: center; justify-content: center;
+            flex-wrap: wrap; gap: 12px; margin-top: 28px;
+        }
+        .glama-badges a {
+            display: inline-flex; align-items: center; line-height: 0;
+            border-radius: 4px; overflow: hidden;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+        .glama-badges a:hover { opacity: 0.92; transform: translateY(-2px); }
+        .glama-badges img { display: block; height: 28px; width: auto; max-width: 100%; }
+        footer .glama-badges { margin-top: 16px; }
+        footer .glama-badges img { height: 24px; }
         .btn {
             font-family: var(--pixel); font-size: 11px; padding: 16px 32px;
             border: 2px solid var(--neon-green); background: transparent;
@@ -792,6 +805,14 @@
             <a href="#install" class="btn">INSERT COIN TO PLAY</a>
             <a href="flaiwheel_whitepaper_volker_geith_v1.3.pdf" class="btn btn-secondary" target="_blank" rel="noopener">READ WHITEPAPER</a>
             <a href="https://github.com/dl4rce/flaiwheel" class="btn btn-secondary" target="_blank">VIEW SOURCE</a>
+        </div>
+        <div class="glama-badges">
+            <a href="https://glama.ai/mcp/servers/dl4rce/flaiwheel" target="_blank" rel="noopener noreferrer" title="Flaiwheel on Glama MCP directory">
+                <img src="https://glama.ai/mcp/servers/dl4rce/flaiwheel/badges/score.svg" alt="Glama MCP score — Flaiwheel" width="120" height="28" loading="lazy" decoding="async">
+            </a>
+            <a href="https://glama.ai/mcp/servers/dl4rce/flaiwheel" target="_blank" rel="noopener noreferrer" title="Available on Glama">
+                <img src="https://img.shields.io/badge/Available%20on-Glama-6366f1?style=flat" alt="Available on Glama" height="28" loading="lazy" decoding="async">
+            </a>
         </div>
     </section>
 
@@ -1295,6 +1316,14 @@
             <a href="https://github.com/dl4rce/flaiwheel" target="_blank" rel="noopener noreferrer">GitHub</a> &middot;
             <a href="mailto:info@4rce.com">info@4rce.com</a> &middot;
             <a href="https://4rce.com">4rce.com</a>
+        </p>
+        <p class="glama-badges">
+            <a href="https://glama.ai/mcp/servers/dl4rce/flaiwheel" target="_blank" rel="noopener noreferrer" title="Flaiwheel on Glama">
+                <img src="https://glama.ai/mcp/servers/dl4rce/flaiwheel/badges/score.svg" alt="Glama MCP score" height="24" loading="lazy" decoding="async">
+            </a>
+            <a href="https://glama.ai/mcp/servers/dl4rce/flaiwheel" target="_blank" rel="noopener noreferrer" title="Available on Glama">
+                <img src="https://img.shields.io/badge/Available%20on-Glama-6366f1?style=flat" alt="Available on Glama" height="24" loading="lazy" decoding="async">
+            </a>
         </p>
     </footer>
 
