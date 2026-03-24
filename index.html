@@ -15,6 +15,7 @@
     <!-- Preload critical external resource -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lejg5YsAAAAAC5ywD_F8WlpFle7x_2yL-iI_bJv" async defer></script>
 
     <!-- Google Analytics (loaded only after consent) -->
     <script>
@@ -1390,7 +1391,9 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('consent-banner').classList.add('hidden');
     }
 
-    // Beta form: AJAX submit + show success (or restore success state from #beta-success)
+    // Beta form: reCAPTCHA v3 token + AJAX submit (required by Formspree when Custom reCAPTCHA V3 is enabled)
+    var RECAPTCHA_SITE_KEY = '6Lejg5YsAAAAAC5ywD_F8WlpFle7x_2yL-iI_bJv';
+
     function showBetaSuccess(form) {
         form.classList.add('submitted');
         var msg = form.querySelector('.beta-form-success');
@@ -1408,22 +1411,40 @@ document.addEventListener('DOMContentLoaded', function() {
                 var fd = new FormData(form);
                 btn.disabled = true;
                 btn.textContent = '...';
-                fetch(form.action, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } })
-                    .then(function(r) {
-                        if (r.ok) {
-                            showBetaSuccess(form);
-                            window.history.replaceState(null, '', '#beta-success');
-                        } else {
-                            btn.disabled = false;
-                            btn.textContent = 'JOIN THE BETA';
+                function resetBtn() {
+                    btn.disabled = false;
+                    btn.textContent = 'JOIN THE BETA';
+                }
+                function postToFormspree() {
+                    fetch(form.action, { method: 'POST', body: fd, headers: { 'Accept': 'application/json' } })
+                        .then(function(r) {
+                            if (r.ok) {
+                                showBetaSuccess(form);
+                                window.history.replaceState(null, '', '#beta-success');
+                            } else {
+                                resetBtn();
+                                alert('Something went wrong. Please try again or email info@4rce.com');
+                            }
+                        })
+                        .catch(function() {
+                            resetBtn();
                             alert('Something went wrong. Please try again or email info@4rce.com');
-                        }
-                    })
-                    .catch(function() {
-                        btn.disabled = false;
-                        btn.textContent = 'JOIN THE BETA';
-                        alert('Something went wrong. Please try again or email info@4rce.com');
+                        });
+                }
+                if (typeof grecaptcha === 'undefined') {
+                    resetBtn();
+                    alert('Could not load verification. Please refresh the page or email info@4rce.com');
+                    return;
+                }
+                grecaptcha.ready(function() {
+                    grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'beta_signup' }).then(function(token) {
+                        fd.append('g-recaptcha-response', token);
+                        postToFormspree();
+                    }).catch(function() {
+                        resetBtn();
+                        alert('Verification failed. Please try again or email info@4rce.com');
                     });
+                });
             });
         }
     }
