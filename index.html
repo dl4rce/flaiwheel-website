@@ -65,7 +65,7 @@
         "@type": "SoftwareApplication",
         "name": "Flaiwheel",
         "url": "https://flaiwheel.app",
-        "description": "The persistent memory and governance layer for AI coding agents. Self-hosted Docker container, Git-native flat-file storage, zero lock-in. 28 MCP tools enforce knowledge capture, quality gates ensure high-signal retrieval, and engineering knowledge compounds automatically across sessions.",
+        "description": "The persistent memory and governance layer for AI coding agents. Self-hosted Docker container, Git-native flat-file storage, zero lock-in. 30 MCP tools enforce knowledge capture, quality gates ensure high-signal retrieval, structured relations link decisions over time, and engineering knowledge compounds automatically across sessions.",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "Linux, macOS, Windows (Docker)",
         "offers": [
@@ -790,7 +790,7 @@
                 <div class="label">Faster Development</div>
             </div>
             <div class="stat">
-                <div class="num">28</div>
+                <div class="num">30</div>
                 <div class="label">MCP Tools</div>
             </div>
             <div class="stat">
@@ -957,6 +957,11 @@
                 <p>Agents generate auto-updating <span style="color:var(--neon-magenta);">Mermaid.js UML diagrams</span> for system components and executable BDD test flows (<code style="color:var(--neon-green); background:rgba(57,255,20,0.08); padding:2px 4px; font-size:11px;">Given/When/Then</code>). Your documentation becomes input for automated QA testing.</p>
             </div>
             <div class="feature-card">
+                <div class="icon">&#128279;</div>
+                <h3>STRUCTURED RELATIONS</h3>
+                <p>Declare edges in YAML frontmatter &mdash; <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">replaces</code>, <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">depends_on</code>, <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">fixes</code>, <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">implements</code>. Two read-only tools (<code style="color:var(--neon-green);">relations()</code>, <code style="color:var(--neon-green);">timeline()</code>) resolve the graph and the <span style="color:var(--neon-yellow);">Git history is the validity window</span> &mdash; no second store, no drift, markdown stays canonical.</p>
+            </div>
+            <div class="feature-card">
                 <div class="icon">&#127756;</div>
                 <h3>"THIS IS THE WAY"</h3>
                 <p>Knowledge Bootstrap &mdash; classify files by content + embeddings, detect near-duplicates, propose a cleanup plan. Never deletes files. User approves every action. Also triggered by saying <span style="color:var(--neon-yellow);">"42"</span>.</p>
@@ -970,7 +975,7 @@
     </section>
 
     <section id="tools">
-        <h2>// 28 MCP TOOLS</h2>
+        <h2>// 30 MCP TOOLS</h2>
         <p style="text-align:center; margin-bottom:24px;">
             Works with Cursor, Claude Code, VS Code Copilot &mdash; any MCP-compatible AI agent.
         </p>
@@ -1004,6 +1009,8 @@
             <tr><td>get_recent_sessions</td><td>Retrieve recent session summaries (newest first)</td></tr>
             <tr style="background:rgba(255,230,0,0.03);"><td>analyze_codebase</td><td>Cold-start scan of a source directory &mdash; zero tokens, zero cloud. Cached in <code>/data/</code> for instant reads. Pass <code>force=True</code> to refresh. Returns ranked documentation plan.</td></tr>
             <tr><td>get_file_context</td><td>Pre-load spatial knowledge for a file the agent is about to edit</td></tr>
+            <tr style="background:rgba(0,255,247,0.03);"><td>relations</td><td>Resolve structured edges from YAML frontmatter &mdash; <code>replaces</code>, <code>depends_on</code>, <code>fixes</code>, <code>implements</code></td></tr>
+            <tr style="background:rgba(0,255,247,0.03);"><td>timeline</td><td>Git history for the doc holding an entity &mdash; "what was true at time T?" without a second store</td></tr>
         </table>
         <p style="text-align:center; margin-top:16px; font-size:13px; color:var(--text);">
             All tools accept an optional <code style="color:var(--neon-green); background:rgba(57,255,20,0.08); padding:2px 6px;">project</code> parameter for multi-repo targeting.
@@ -1138,7 +1145,7 @@
                 <ul>
                     <li>Non-commercial use</li>
                     <li>Teams up to 10 people</li>
-                    <li>All 28 MCP tools</li>
+                    <li>All 30 MCP tools</li>
                     <li>Unlimited docs &amp; searches</li>
                     <li>Self-hosted, fully private</li>
                     <li>Community support (GitHub)</li>
@@ -1152,7 +1159,7 @@
                 <ul>
                     <li>Commercial use without team limit</li>
                     <li>License through December 31, 2026 (see <a href="https://github.com/dl4rce/flaiwheel/blob/main/LICENSE.md" target="_blank" rel="noopener" style="color:var(--neon-cyan);">BSL</a>)</li>
-                    <li>All 28 MCP tools</li>
+                    <li>All 30 MCP tools</li>
                     <li>Commercial rights for the beta period</li>
                     <li>No payment &mdash; email only</li>
                 </ul>
