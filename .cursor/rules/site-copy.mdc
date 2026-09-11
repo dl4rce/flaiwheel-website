@@ -1,0 +1,59 @@
+# Site Copy — Plain Facts Only
+
+The website states **what the software does**. It does not argue a case, and it
+does not defend design decisions. This applies to every page, card, heading and
+meta tag in this repo.
+
+## Never write
+
+- **Negation lists.** "no Caddy, no tunnel, no openssl", "no reverse proxy",
+  "no format lock-in", "no second store". If the software runs without a
+  component, say what it does instead: "generates the certificate inside the
+  container".
+- **Defensive clauses.** Anything shaped like "X stays on", "never disables the
+  guard", "is never switched off", "refuses to start rather than silently
+  falling back to plaintext". These answer an objection the reader has not
+  raised. If a behaviour matters, name the flag that controls it.
+- **Justification tails.** "— which makes it idempotent", "so a client connects
+  with no manual step", "so your AI gets smarter over time", "stop using it and
+  you keep everything". State the mechanism; let the reader draw the
+  conclusion.
+- **Editorialising qualifiers.** "genuinely", "deliberately", "not just a
+  vector DB", "not hobby projects", "reliable at scale", "maximum precision",
+  "Zero noise", "spam Git", "forcing the LLM".
+- **Comparative framing.** "~90% token reduction vs. agent-driven file
+  reading", "10-25% higher precision". Report an unqualified measured figure or
+  report nothing.
+- **Claim-style headings.** "PERSISTENT MEMORY THAT COMPOUNDS",
+  "ENTERPRISE-READY BY DESIGN", "ZERO CLOUD, ZERO LOCK-IN". Headings name a
+  capability: "PERSISTENT MEMORY ACROSS SESSIONS", "MULTI-REPO, HOT-SWAP,
+  TELEMETRY".
+
+## Always write
+
+- The mechanism, in one or two sentences.
+- The exact configuration names that control it — `MCP_SSE_ALLOWED_HOSTS`,
+  `MCP_SSE_TLS_AUTO`, `~/.flaiwheel/ca.pem`, `NODE_EXTRA_CA_CERTS`. A reader
+  should be able to act on the card without opening the README.
+- Numbers only when they are real and attributable. An unsourced percentage in
+  a marketing card is a fabricated claim.
+
+## Shape
+
+Feature card:
+
+```
+Mechanism. Configuration that controls it. Limit, if there is one.
+```
+
+## Test
+
+Read the sentence and ask: *is this a fact about the software, or an argument
+for it?* If it argues, cut everything after the mechanism.
+
+## Keep
+
+Deliberate brand elements are not prose: the `EVERY BUG FIXED MAKES THE NEXT
+BUG CHEAPER` tagline, `THE CYCLE NEVER STOPS. KNOWLEDGE ONLY GROWS.`, the
+arcade styling, and the third-party product cards under `// ALSO BY 4RCE`
+(those describe other products and follow their own voice).
