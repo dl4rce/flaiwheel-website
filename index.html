@@ -100,7 +100,7 @@
         },
         "license": "https://github.com/dl4rce/flaiwheel/blob/main/LICENSE.md",
         "downloadUrl": "https://github.com/dl4rce/flaiwheel",
-        "softwareVersion": "3.14.0",
+        "softwareVersion": "3.15.2",
         "dateModified": "2026-09-11"
     }
     </script>
@@ -939,7 +939,7 @@
             <div class="feature-card">
                 <div class="icon">&#128225;</div>
                 <h3>REMOTE / LAN READY</h3>
-                <p>Serve MCP to other machines with <span style="color:var(--neon-yellow);">no reverse proxy</span>. <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">MCP_SSE_ALLOWED_HOSTS</code> allowlists your hostnames, and optional <span style="color:var(--neon-green);">native TLS</span> encrypts the endpoint in-container &mdash; no Caddy, no tunnel. DNS-rebinding protection stays <em>on</em>: widening the allowlist never disables the guard, and a half-configured certificate refuses to start rather than silently falling back to plaintext.</p>
+                <p>Serve MCP to other machines with <span style="color:var(--neon-yellow);">no reverse proxy</span>. <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">MCP_SSE_ALLOWED_HOSTS</code> allowlists your hostnames, and optional <span style="color:var(--neon-green);">automatic TLS</span> issues an in-container certificate &mdash; no Caddy, no tunnel, no <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">openssl</code>. The installer exports the CA and writes every client config with <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">NODE_EXTRA_CA_CERTS</code>, so a client on the host connects with no manual step. DNS-rebinding protection stays <em>on</em>: widening the allowlist never disables the guard, verification is never switched off, and a half-configured certificate refuses to start rather than silently falling back to plaintext.</p>
             </div>
             <div class="feature-card">
                 <div class="icon">&#128193;</div>
