@@ -781,8 +781,8 @@
         <h1>FLAIWHEEL</h1>
         <div class="tagline">EVERY BUG FIXED MAKES THE NEXT BUG CHEAPER</div>
         <p class="sub">
-            A self-improving knowledge base for AI coding agents.
-            Self-hosted. MCP-native. Knowledge compounds automatically.
+            A self-hosted knowledge base for AI coding agents.
+            MCP-native. Runs in a single Docker container.
         </p>
         <div class="stats">
             <div class="stat">
@@ -817,7 +817,7 @@
     <section id="how">
         <h2>// HOW THE FLYWHEEL WORKS</h2>
         <p style="text-align:center; max-width:680px; margin:0 auto 16px; font-size:16px;">
-            AI agents write. Flaiwheel remembers. If they forget, <span style="color:var(--neon-yellow);">Flaiwheel nudges them.</span> Everything stays local.
+            Agents write documentation through MCP. Flaiwheel indexes it and returns it on later queries. Agents that skip documentation get an <span style="color:var(--neon-yellow);">in-band nudge.</span>
         </p>
 
         <!-- Lean USP Diagram -->
@@ -858,7 +858,7 @@
     <section id="search-pipeline">
         <h2>// SEARCH PIPELINE</h2>
         <p style="text-align:center; max-width:680px; margin:0 auto 40px; font-size:16px;">
-            Five stages. Configurable at every step. Optional reranker for maximum precision.
+            Five stages. Configurable at every step.
         </p>
         <div style="max-width:600px; margin:0 auto;">
             <div style="display:flex; align-items:flex-start; gap:16px; margin-bottom:8px;">
@@ -889,7 +889,7 @@
                 <div style="flex-shrink:0; width:36px; height:36px; border-radius:50%; background:var(--neon-yellow); color:var(--dark); font-family:var(--pixel); font-size:12px; display:flex; align-items:center; justify-content:center; box-shadow:0 0 12px var(--neon-yellow);">4</div>
                 <div>
                     <div style="font-family:var(--pixel); font-size:11px; color:var(--neon-yellow); margin-bottom:4px;">CROSS-ENCODER RERANKER <span style="font-family:sans-serif; font-size:10px; opacity:0.7;">(optional)</span></div>
-                    <p style="font-size:13px;">Reads each (query, doc) pair together for precise relevance scoring. Solves vocabulary mismatch. +50ms, +10-25% precision.</p>
+                    <p style="font-size:13px;">Reads each (query, doc) pair together for relevance scoring. +50&nbsp;ms, +10-25% precision.</p>
                 </div>
             </div>
             <div style="margin-left:17px; width:2px; height:16px; background:var(--border);"></div>
@@ -897,7 +897,7 @@
                 <div style="flex-shrink:0; width:36px; height:36px; border-radius:50%; background:var(--neon-green); color:var(--dark); font-family:var(--pixel); font-size:12px; display:flex; align-items:center; justify-content:center; box-shadow:0 0 12px var(--neon-green);">5</div>
                 <div>
                     <div style="font-family:var(--pixel); font-size:11px; color:var(--neon-green); margin-bottom:4px;">RELEVANCE FILTER &amp; RETURN</div>
-                    <p style="font-size:13px;">Configurable minimum threshold. Only the most relevant chunks reach the AI agent. Zero noise.</p>
+                    <p style="font-size:13px;">Configurable minimum threshold. Chunks below it are not returned.</p>
                 </div>
             </div>
         </div>
@@ -914,12 +914,12 @@
             <div class="feature-card">
                 <div class="icon">&#9997;</div>
                 <h3>STRUCTURED WRITE TOOLS</h3>
-                <p>7 category-specific write tools enforce quality at the source. Bugfixes, architecture, API docs, best practices, setup guides, changelogs, test cases &mdash; <span style="color:var(--neon-yellow);">every new doc auto-becomes a graph node</span> via emitted YAML frontmatter, no manual editing.</p>
+                <p>7 category-specific write tools: bugfixes, architecture, API docs, best practices, setup guides, changelogs, and test cases. Each write emits YAML frontmatter, so every document is a graph node.</p>
             </div>
             <div class="feature-card">
                 <div class="icon">&#128737;</div>
                 <h3>QUALITY GATE</h3>
-                <p>Pre-commit validation + ingest-time quality checks. Bad docs are skipped, never deleted. You own your files.</p>
+                <p>Pre-commit validation and ingest-time quality checks. Files with critical issues are skipped during indexing; Flaiwheel never deletes or modifies them.</p>
             </div>
             <div class="feature-card">
                 <div class="icon">&#128259;</div>
@@ -929,7 +929,7 @@
             <div class="feature-card">
                 <div class="icon">&#128202;</div>
                 <h3>TELEMETRY &amp; SMART NUDGES</h3>
-                <p>Tracks every MCP call. If an agent fixes a bug but forgets to document it, Flaiwheel injects an <span style="color:var(--neon-yellow);">in-band prompt nudge</span> directly into the tool response, forcing the LLM to write the summary before it replies to you.</p>
+                <p>Tracks every MCP call. When an agent fixes a bug without documenting it, Flaiwheel appends an <span style="color:var(--neon-yellow);">in-band nudge</span> to the tool response.</p>
             </div>
             <div class="feature-card">
                 <div class="icon">&#128274;</div>
@@ -939,12 +939,12 @@
             <div class="feature-card">
                 <div class="icon">&#128225;</div>
                 <h3>REMOTE / LAN READY</h3>
-                <p>Serve MCP to other machines with <span style="color:var(--neon-yellow);">no reverse proxy</span>. <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">MCP_SSE_ALLOWED_HOSTS</code> allowlists your hostnames, and optional <span style="color:var(--neon-green);">automatic TLS</span> issues an in-container certificate &mdash; no Caddy, no tunnel, no <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">openssl</code>. The installer exports the CA and writes every client config with <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">NODE_EXTRA_CA_CERTS</code>, so a client on the host connects with no manual step. DNS-rebinding protection stays <em>on</em>: widening the allowlist never disables the guard, verification is never switched off, and a half-configured certificate refuses to start rather than silently falling back to plaintext.</p>
+                <p>Serve MCP to other machines over TCP. <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">MCP_SSE_ALLOWED_HOSTS</code> sets the accepted hostnames. <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">MCP_SSE_TLS_AUTO=true</code> generates a private CA and a server certificate inside the container. The installer exports the CA to <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">~/.flaiwheel/ca.pem</code> and writes that path into each client config as <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">NODE_EXTRA_CA_CERTS</code>.</p>
             </div>
             <div class="feature-card">
                 <div class="icon">&#128193;</div>
                 <h3>MULTI-REPO</h3>
-                <p>Manage multiple projects from a single Flaiwheel instance. One container, one MCP endpoint, one embedding model in RAM &mdash; per-project isolation for collections, watchers, and quality checks.</p>
+                <p>Manage multiple projects from a single Flaiwheel instance. One container, one MCP endpoint, one embedding model in RAM. Collections, watchers, and quality checks are isolated per project.</p>
             </div>
             <div class="feature-card">
                 <div class="icon">&#128260;</div>
@@ -954,22 +954,22 @@
             <div class="feature-card">
                 <div class="icon">&#128196;</div>
                 <h3>9 INPUT FORMATS</h3>
-                <p>Index MD, TXT, PDF, HTML, RST, DOCX, JSON, YAML, and CSV files. All formats are converted to markdown internally &mdash; one pipeline, no format lock-in.</p>
+                <p>Index MD, TXT, PDF, HTML, RST, DOCX, JSON, YAML, and CSV files. All formats are converted to markdown internally.</p>
             </div>
             <div class="feature-card">
                 <div class="icon">&#128337;</div>
                 <h3>LIVING ARCHITECTURE &amp; BDD</h3>
-                <p>Agents generate auto-updating <span style="color:var(--neon-magenta);">Mermaid.js UML diagrams</span> for system components and executable BDD test flows (<code style="color:var(--neon-green); background:rgba(57,255,20,0.08); padding:2px 4px; font-size:11px;">Given/When/Then</code>). Your documentation becomes input for automated QA testing.</p>
+                <p>Agents generate auto-updating <span style="color:var(--neon-magenta);">Mermaid.js UML diagrams</span> for system components and BDD test flows in <code style="color:var(--neon-green); background:rgba(57,255,20,0.08); padding:2px 4px; font-size:11px;">Given/When/Then</code> syntax.</p>
             </div>
             <div class="feature-card">
                 <div class="icon">&#128279;</div>
                 <h3>STRUCTURED RELATIONS</h3>
-                <p><span style="color:var(--neon-yellow);">Every doc the agent writes is automatically a graph node</span> &mdash; the structured write tools emit YAML frontmatter (<code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">id</code>, <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">type</code>, <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">replaces</code>, <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">depends_on</code>, <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">fixes</code>, <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">implements</code>) for you. Two read-only tools (<code style="color:var(--neon-green);">relations()</code>, <code style="color:var(--neon-green);">timeline()</code>) resolve the graph and <span style="color:var(--neon-yellow);">Git history is the validity window</span> &mdash; no second store, no drift, markdown stays canonical.</p>
+                <p>Structured write tools emit YAML frontmatter (<code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">id</code>, <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">type</code>, <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">replaces</code>, <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">depends_on</code>, <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">fixes</code>, <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">implements</code>). <code style="color:var(--neon-green);">relations()</code> resolves inbound and outbound edges from it. <code style="color:var(--neon-green);">timeline()</code> returns the Git history of a document.</p>
             </div>
             <div class="feature-card">
                 <div class="icon">&#128202;</div>
                 <h3>TELEMETRY THAT SURVIVES</h3>
-                <p>Per-project tool-usage counters are <span style="color:var(--neon-yellow);">mirrored into each knowledge repo</span> at <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">.flaiwheel/telemetry.json</code>. Wipe the Docker volume, redeploy on a new host, run on an air-gapped machine &mdash; the dashboard rebuilds from the repo on next start. Hot tier in the volume stays authoritative; mirror writes are rate-limited so they don't spam Git. One-click <span style="color:var(--neon-green);">Reset</span> per project, history of events preserved.</p>
+                <p>Per-project tool-usage counters are written to <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">.flaiwheel/telemetry.json</code> in each knowledge repo. After a volume wipe or a redeploy, the dashboard rebuilds from the repo. One-click <span style="color:var(--neon-green);">Reset</span> per project.</p>
             </div>
             <div class="feature-card">
                 <div class="icon">&#127756;</div>
@@ -979,7 +979,7 @@
             <div class="feature-card">
                 <span class="feature-icon">🚀</span>
                 <h3>COLD-START ANALYZER</h3>
-                <p><code>analyze_codebase(path)</code> &mdash; scan a legacy source directory entirely server-side. Zero tokens. Zero cloud. Uses <code>ast</code> + regex + local MiniLM to extract structure, classify files, detect duplicates, and rank the top 20 files to document first. Report is cached in <code>/data/</code> for instant reads on every subsequent agent session. ~90% token reduction vs. agent-driven file reading.</p>
+                <p><code>analyze_codebase(path)</code> scans a source directory server-side. Uses <code>ast</code> + regex + local MiniLM to extract structure, classify files, detect duplicates, and rank the top 20 files to document first. The report is cached in <code>/data/</code>.</p>
             </div>
         </div>
     </section>
@@ -1017,10 +1017,10 @@
             <tr style="background:rgba(255,230,0,0.03);"><td>classify_documents</td><td>"This is the Way" &mdash; classify project docs for knowledge migration</td></tr>
             <tr><td>save_session_summary</td><td>Save session context for next-session continuity</td></tr>
             <tr><td>get_recent_sessions</td><td>Retrieve recent session summaries (newest first)</td></tr>
-            <tr style="background:rgba(255,230,0,0.03);"><td>analyze_codebase</td><td>Cold-start scan of a source directory &mdash; zero tokens, zero cloud. Cached in <code>/data/</code> for instant reads. Pass <code>force=True</code> to refresh. Returns ranked documentation plan.</td></tr>
+            <tr style="background:rgba(255,230,0,0.03);"><td>analyze_codebase</td><td>Cold-start scan of a source directory, server-side. No LLM API calls. Cached in <code>/data/</code>. Pass <code>force=True</code> to refresh. Returns a ranked documentation plan.</td></tr>
             <tr><td>get_file_context</td><td>Pre-load spatial knowledge for a file the agent is about to edit</td></tr>
-            <tr style="background:rgba(0,255,247,0.03);"><td>relations</td><td>Resolve structured edges from YAML frontmatter &mdash; <code>replaces</code>, <code>depends_on</code>, <code>fixes</code>, <code>implements</code></td></tr>
-            <tr style="background:rgba(0,255,247,0.03);"><td>timeline</td><td>Git history for the doc holding an entity &mdash; "what was true at time T?" without a second store</td></tr>
+            <tr style="background:rgba(0,255,247,0.03);"><td>relations</td><td>Resolve inbound and outbound edges from YAML frontmatter: <code>replaces</code>, <code>depends_on</code>, <code>fixes</code>, <code>implements</code></td></tr>
+            <tr style="background:rgba(0,255,247,0.03);"><td>timeline</td><td>Git history for the document holding an entity. Answers "what was true at time T?"</td></tr>
         </table>
         <p style="text-align:center; margin-top:16px; font-size:13px; color:var(--text);">
             All tools accept an optional <code style="color:var(--neon-green); background:rgba(57,255,20,0.08); padding:2px 6px;">project</code> parameter for multi-repo targeting.
@@ -1030,40 +1030,39 @@
     <section id="why-different">
         <h2>// WHY FLAIWHEEL IS DIFFERENT</h2>
         <p style="text-align:center; max-width:640px; margin:0 auto 48px; font-size:16px; line-height:1.8;">
-            AI coding tools accelerate code generation. They don't preserve engineering knowledge.
-            Flaiwheel is the <span style="color:var(--neon-cyan);">memory and governance layer</span> that closes that gap — so every session builds on the last.
+            Flaiwheel is a <span style="color:var(--neon-cyan);">memory and governance layer</span> for AI coding agents. Bug fixes, architecture decisions, and test cases are stored as structured markdown in a Git repository, and retrieved by hybrid semantic search.
         </p>
 
         <div class="features-grid">
             <div class="feature-card">
                 <div style="font-family:var(--pixel);font-size:9px;color:var(--neon-yellow);margin-bottom:10px;text-shadow:0 0 6px rgba(255,230,0,0.4);">01</div>
-                <h3>PERSISTENT MEMORY THAT COMPOUNDS</h3>
-                <p>AI agents normally reset every session. Flaiwheel turns every bug fix, architecture decision, and test case into permanent structured knowledge — so your AI gets smarter over time instead of starting from zero.</p>
+                <h3>PERSISTENT MEMORY ACROSS SESSIONS</h3>
+                <p>AI agents reset every session. Flaiwheel stores every bug fix, architecture decision, and test case as structured markdown, retrievable in later sessions.</p>
             </div>
             <div class="feature-card">
                 <div style="font-family:var(--pixel);font-size:9px;color:var(--neon-yellow);margin-bottom:10px;text-shadow:0 0 6px rgba(255,230,0,0.4);">02</div>
-                <h3>SELF-HOSTED — ZERO CLOUD, ZERO LOCK-IN</h3>
-                <p>Single Docker container. No external services, no API keys, no data leaves your network. All knowledge lives as flat files in your own Git repository — stop using Flaiwheel and you keep everything.</p>
+                <h3>SELF-HOSTED, GIT-NATIVE STORAGE</h3>
+                <p>Single Docker container. No external services and no API keys. All knowledge lives as flat files in your own Git repository.</p>
             </div>
             <div class="feature-card">
                 <div style="font-family:var(--pixel);font-size:9px;color:var(--neon-yellow);margin-bottom:10px;text-shadow:0 0 6px rgba(255,230,0,0.4);">03</div>
                 <h3>HYBRID SEARCH + RERANKING</h3>
-                <p>Not just a vector DB. Semantic search, BM25 keyword matching, RRF fusion, optional cross-encoder reranking, and relevance filtering — delivering high-precision context to AI agents in serious codebases.</p>
+                <p>Semantic search, BM25 keyword matching, RRF fusion, optional cross-encoder reranking, and relevance filtering, with configurable weights and thresholds at every stage.</p>
             </div>
             <div class="feature-card">
                 <div style="font-family:var(--pixel);font-size:9px;color:var(--neon-yellow);margin-bottom:10px;text-shadow:0 0 6px rgba(255,230,0,0.4);">04</div>
                 <h3>AUTOMATIC CAPTURE VIA GIT + MCP</h3>
-                <p>Every <code style="color:var(--neon-green);background:rgba(57,255,20,0.08);padding:1px 4px;font-size:11px;">fix:</code>, <code style="color:var(--neon-green);background:rgba(57,255,20,0.08);padding:1px 4px;font-size:11px;">feat:</code>, and <code style="color:var(--neon-green);background:rgba(57,255,20,0.08);padding:1px 4px;font-size:11px;">refactor:</code> workflow is captured in context. Agents search before coding and document after fixes. Zero manual prompting — knowledge compounds automatically.</p>
+                <p>Every <code style="color:var(--neon-green);background:rgba(57,255,20,0.08);padding:1px 4px;font-size:11px;">fix:</code>, <code style="color:var(--neon-green);background:rgba(57,255,20,0.08);padding:1px 4px;font-size:11px;">feat:</code>, and <code style="color:var(--neon-green);background:rgba(57,255,20,0.08);padding:1px 4px;font-size:11px;">refactor:</code> workflow is captured in context. Agents search before coding and document after fixes.</p>
             </div>
             <div class="feature-card">
                 <div style="font-family:var(--pixel);font-size:9px;color:var(--neon-yellow);margin-bottom:10px;text-shadow:0 0 6px rgba(255,230,0,0.4);">05</div>
                 <h3>STRUCTURED KNOWLEDGE + QUALITY GATES</h3>
-                <p>Seven category-specific write tools enforce consistency across bugfixes, architecture, API docs, tests, and more. Pre-commit validation and ingest checks ensure high-quality memory — bad docs are skipped, never deleted.</p>
+                <p>Seven category-specific write tools for bugfixes, architecture, API docs, tests, and more. Pre-commit validation and ingest checks run before indexing; files with critical issues are skipped.</p>
             </div>
             <div class="feature-card">
                 <div style="font-family:var(--pixel);font-size:9px;color:var(--neon-yellow);margin-bottom:10px;text-shadow:0 0 6px rgba(255,230,0,0.4);">06</div>
-                <h3>ENTERPRISE-READY BY DESIGN</h3>
-                <p>Multi-repo support, model hot-swap without downtime, telemetry and impact metrics, living architecture diagrams (Mermaid.js), and executable BDD flows. Built for serious codebases — not hobby projects.</p>
+                <h3>MULTI-REPO, HOT-SWAP, TELEMETRY</h3>
+                <p>Multi-repo support, model hot-swap without downtime, telemetry and impact metrics, Mermaid.js architecture diagrams, and BDD test flows.</p>
             </div>
         </div>
 
@@ -1140,7 +1139,7 @@
                 </table>
             </div>
             <p style="text-align:center; margin-top:20px; font-size:13px; color:var(--text); font-style:italic;">
-                Flaiwheel does not replace your AI coding assistant. It makes it reliable at scale.
+                Flaiwheel runs alongside an AI coding assistant over MCP.
             </p>
         </div>
     </section>
