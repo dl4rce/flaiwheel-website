@@ -939,7 +939,7 @@
             <div class="feature-card">
                 <div class="icon">&#128225;</div>
                 <h3>REMOTE / LAN READY</h3>
-                <p>Serve MCP to other machines over TCP. <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">MCP_SSE_ALLOWED_HOSTS</code> sets the accepted hostnames. <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">MCP_SSE_TLS_AUTO=true</code> generates a private CA and a server certificate inside the container. The installer exports the CA to <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">~/.flaiwheel/ca.pem</code> and writes that path into each client config as <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">NODE_EXTRA_CA_CERTS</code>.</p>
+                <p>Serve MCP to other machines over TCP. <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">MCP_SSE_ALLOWED_HOSTS</code> sets the accepted hostnames. The default endpoint is HTTP on port 8081. Optional <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">MCP_SSE_TLS_AUTO=true</code> generates a private CA and a server certificate. Direct Cursor/Electron clients may require the CA in the operating-system trust store.</p>
             </div>
             <div class="feature-card">
                 <div class="icon">&#128193;</div>
