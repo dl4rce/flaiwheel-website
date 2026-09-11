@@ -100,8 +100,8 @@
         },
         "license": "https://github.com/dl4rce/flaiwheel/blob/main/LICENSE.md",
         "downloadUrl": "https://github.com/dl4rce/flaiwheel",
-        "softwareVersion": "3.9.26",
-        "dateModified": "2026-03-25"
+        "softwareVersion": "3.14.0",
+        "dateModified": "2026-09-11"
     }
     </script>
     <script type="application/ld+json">
@@ -935,6 +935,11 @@
                 <div class="icon">&#128274;</div>
                 <h3>SELF-HOSTED</h3>
                 <p>Runs in a single Docker container on your machine. No cloud, no API keys required, no data leaves your network.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">&#128225;</div>
+                <h3>REMOTE / LAN READY</h3>
+                <p>Serve MCP to other machines with <span style="color:var(--neon-yellow);">no reverse proxy</span>. <code style="color:var(--neon-cyan); background:rgba(0,255,247,0.08); padding:2px 4px; font-size:11px;">MCP_SSE_ALLOWED_HOSTS</code> allowlists your hostnames, and optional <span style="color:var(--neon-green);">native TLS</span> encrypts the endpoint in-container &mdash; no Caddy, no tunnel. DNS-rebinding protection stays <em>on</em>: widening the allowlist never disables the guard, and a half-configured certificate refuses to start rather than silently falling back to plaintext.</p>
             </div>
             <div class="feature-card">
                 <div class="icon">&#128193;</div>
