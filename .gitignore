@@ -1,0 +1,8 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+*.log
+
+# Timestamped pre-edit backups must never be served as site assets.
+*.pre-*
