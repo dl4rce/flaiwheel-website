@@ -1,0 +1,42 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# Gitleaks config — flaiwheel-website (PUBLIC repo)
+#
+# Deliberately NOT the shared github-rep house config. This repository is public,
+# so it carries only the upstream default ruleset plus allowlists that this repo
+# actually needs. Rules and allowlists for unrelated private projects do not
+# belong in a public tree.
+#
+# If the house config is updated, do not blanket-copy it here — port only what a
+# public static site needs.
+#
+# Do not add an allowlist entry for a private project's value. Every entry below
+# is justified in place.
+# ──────────────────────────────────────────────────────────────────────────────
+
+title = "flaiwheel-website gitleaks config"
+
+# Maintained upstream default rules — wide coverage, no local weakening.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Placeholders and public-by-design values"
+
+regexes = [
+  # Common documentation placeholders.
+  '''YOUR_[A-Z0-9_]+''',
+  '''<[A-Za-z0-9_\- .]*?(?:REDACTED|PASSWORD|SECRET|KEY|TOKEN|your[_-]?[a-z]*)[A-Za-z0-9_\- .]*?>''',
+  '''\$\{[A-Z0-9_]+\}''',
+  '''(?:xxx+|XXX+|changeme|CHANGEME|placeholder|PLACEHOLDER|example|EXAMPLE)''',
+
+  # ── Google reCAPTCHA SITE key — public by design (rendered in client HTML) ──
+  # Site keys always begin with "6L" and are shipped to the browser. The matching
+  # SECRET key does not share this prefix, so it cannot be hidden by this entry.
+  # Kept at the house policy's narrow shape rather than a broad 6L wildcard.
+  '''6L[A-Za-z0-9_-]{38}''',
+]
+
+paths = [
+  '''(^|/)\.git/''',
+  '''\.(png|jpe?g|gif|webp|ico|pdf|ttf|woff2?)$''',
+]
